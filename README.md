@@ -1,6 +1,6 @@
 # Meteo fiable
 
-A reliable Weather forecast site
+A reliable Weather forecast website
 
 -------------
 
