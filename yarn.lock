@@ -27,9 +27,15 @@
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
 
-"@angular/animations@^5.2.0":
+"@angular/animations@^5.0.0", "@angular/animations@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.9.tgz#220db9fb5a52a193db0023d721b23ddd25a75770"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/cdk@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.2.4.tgz#c0a429a8710d8fedb157f546e21cb49d4335f7f7"
   dependencies:
     tslib "^1.7.1"
 
@@ -98,7 +104,7 @@
   optionalDependencies:
     node-sass "^4.7.2"
 
-"@angular/common@^5.2.0":
+"@angular/common@^5.0.0", "@angular/common@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.2.9.tgz#beb25d4434498abae56bd8dc2c01ade3f6c45e81"
   dependencies:
@@ -113,19 +119,19 @@
     reflect-metadata "^0.1.2"
     tsickle "^0.27.2"
 
-"@angular/compiler@^5.2.0":
+"@angular/compiler@^5.0.0", "@angular/compiler@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.2.9.tgz#1d03bc1e8b38c259bc58114d691c2140d244f8f5"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^5.2.0":
+"@angular/core@^5.0.0", "@angular/core@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.9.tgz#3daf13ef9aa754b9954ed21da3eb322e8b20f667"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@^5.2.0":
+"@angular/forms@^5.0.0", "@angular/forms@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.2.9.tgz#12c45b3a02c398b354f09cc740d914cd904c0c9c"
   dependencies:
@@ -141,13 +147,19 @@
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.2.9.tgz#4838bb6319c99e8f5beb08bdfb392ee9a1173766"
 
-"@angular/platform-browser-dynamic@^5.2.0":
+"@angular/material@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.4.tgz#9e823798324283d23ea839156fac5bcb73443d55"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/platform-browser-dynamic@^5.0.0", "@angular/platform-browser-dynamic@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.9.tgz#86075b7bb694861f722ceda29aae186b045c6b7d"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@^5.2.0":
+"@angular/platform-browser@^5.0.0", "@angular/platform-browser@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-5.2.9.tgz#9ee76327b1b3affad68ffa839058661b7704bc2c"
   dependencies:
@@ -158,6 +170,42 @@
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.9.tgz#0369df6e60c6da3a5842c6eb35e3958d4ffe727e"
   dependencies:
     tslib "^1.7.1"
+
+"@lucca-front/icons@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@lucca-front/icons/-/icons-0.6.1.tgz#0f1cd848ceacaa8853f53ddd77489ba5924ab05a"
+
+"@lucca-front/ng@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@lucca-front/ng/-/ng-0.6.1.tgz#785dee2d81a5d27b9ea66e48b49c417caa5c3a9c"
+  dependencies:
+    "@angular/animations" "^5.0.0"
+    "@angular/common" "^5.0.0"
+    "@angular/compiler" "^5.0.0"
+    "@angular/core" "^5.0.0"
+    "@angular/forms" "^5.0.0"
+    "@angular/platform-browser" "^5.0.0"
+    "@angular/platform-browser-dynamic" "^5.0.0"
+    "@lucca-front/icons" "^0.6.1"
+    "@lucca-front/scss" "^0.6.1"
+    "@ngx-translate/core" "^8.0.0"
+    core-js "^2.4.1"
+    rxjs "^5.5.2"
+    zone.js "^0.8.14"
+
+"@lucca-front/scss@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@lucca-front/scss/-/scss-0.6.1.tgz#41e9e45a33afa10b4730936efe9880da8978958d"
+  dependencies:
+    "@lucca-front/icons" "^0.6.1"
+
+"@ngrx/effects@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-5.2.0.tgz#aa762b69cb6fd4644d724a1cecd265caa42baf09"
+
+"@ngrx/store@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-5.2.0.tgz#627ed74c9cd95462930485d912a557117b23903e"
 
 "@ngtools/json-schema@1.2.0":
   version "1.2.0"
@@ -179,6 +227,10 @@
     source-map "^0.5.6"
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
+
+"@ngx-translate/core@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-8.0.0.tgz#751fd6b512d80f3a748d2de8dfc96dfefa29afe0"
 
 "@schematics/angular@0.3.2":
   version "0.3.2"
@@ -4210,6 +4262,10 @@ module-deps@^4.0.8:
     through2 "^2.0.0"
     xtend "^4.0.0"
 
+moment@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.0.tgz#7921ade01017dd45186e7fee5f424f0b8663a730"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -5526,7 +5582,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^5.5.6:
+rxjs@^5.5.2, rxjs@^5.5.6:
   version "5.5.9"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.9.tgz#12a0487794b00f5eb370fec2751bd973a89886fb"
   dependencies:
@@ -7111,6 +7167,6 @@ yn@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
 
-zone.js@^0.8.19:
+zone.js@^0.8.14, zone.js@^0.8.19:
   version "0.8.26"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.26.tgz#7bdd72f7668c5a7ad6b118148b4ea39c59d08d2d"
