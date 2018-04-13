@@ -1,0 +1,32 @@
+// $global-shadow-color: #383F5D;
+
+// $commons: (
+// 	"animations": (
+// 		"durations": (
+// 			"fast": 100ms,
+// 			"standard": 250ms,
+// 			"slow": 350ms,
+// 		),
+// 		"iteration-count": 5,
+// 	),
+// 	"disabled": (
+// 		"opacity": .3,
+// 	),
+// 	"background": (
+// 		"base": #FFF
+// 	),
+// 	"font": (
+// 		"size": 14px
+// 	),
+// 	"elevations": (
+// 		"1":	"0 1px 3px #{rgba($global-shadow-color, 0.12)}, 0 1px 2px #{rgba($global-shadow-color, 0.24)}",
+// 		"2":	"0 3px 6px #{rgba($global-shadow-color, 0.16)}, 0 3px 6px #{rgba($global-shadow-color, 0.23)}",
+// 		"3":	"0 10px 20px #{rgba($global-shadow-color, 0.19)}, 0 6px 6px #{rgba($global-shadow-color, 0.23)}",
+// 		"4":	"0 1px 2px #{rgba($global-shadow-color, 0.05)}, 0 2px 20px #{rgba($global-shadow-color, 0.2)}",
+// 		"5":	"0 2px 4px #{rgba($global-shadow-color, 0.05)}, 0 4px 40px #{rgba($global-shadow-color, 0.2)}"
+// 	),
+// 	"border": (
+// 		"radius": 2px
+// 	)
+// );
+// $theme: _set($theme, "commons", $commons);
