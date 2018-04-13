@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AddressService } from '../address.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
 	selector: 'mf-form',
@@ -9,13 +10,16 @@ import { AddressService } from '../address.service';
 })
 export class MfFormComponent {
 	model = {};
+	adresses = [];
+
 	constructor(
 		private addressService: AddressService,
 	) {}
 	submit() {
 
 	}
-	searchAddress(clue = '') {
-
+	searchAddresses(clue = '') {
+		this.addressService.searchAddresses(clue)
+		.subscribe(results => this.adresses = results);
 	}
 }
