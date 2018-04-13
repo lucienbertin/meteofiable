@@ -1,11 +1,11 @@
-<form >
-	<div class="textfield">
-		<input class="textfield-input" name="address" [(ngModel)]="model.address">
+<form (ngSubmit)="submit()" #form="ngForm" class="form">
+	<div class="textfield mod-material mod-inline">
+		<input class="textfield-input is-filled" name="address" [(ngModel)]="model.address" required>
 		<label class="textfield-label" for="address">Où ?</label>
 	</div>
-	<div class="textfield">
-		<input class="textfield-input" name="date" [(ngModel)]="model.date">
+	<div class="textfield mod-material mod-inline">
+		<input class="textfield-input is-filled" name="date" [(ngModel)]="model.date" required>
 		<label class="textfield-label" for="date">Quand ?</label>
 	</div>
-	<button class="button icon">east_chevron</button>
+	<button class="button" [ngClass]="{'is-disabled': form.invalid }"><i class="icon">arrow_east</i></button>
 </form>
