@@ -8,9 +8,9 @@
 		<i class="textfield-suffix icon">search</i>
 	</div>
 	<div class="textfield mod-material mod-inline">
-		<input class="textfield-input is-filled" name="date" #dateInput [(ngModel)]="model.date" [matDatepicker]="picker"
-		(click)="togglePicker(picker)" (focus)="focus(picker)" (keydown.tab)="onTab(picker)" (keydown.enter)="onEnter(picker)" (keydown.esc)="onEscape(picker)" (blur)="blur()"
-		required>
+		<input class="textfield-input is-filled" name="date" #dateInput [(ngModel)]="model.date"
+		[matDatepicker]="picker" required
+		(click)="togglePicker(picker)" (focus)="focus(picker)" (keydown.tab)="onTab(picker)" (keydown.enter)="onEnter(picker)" (keydown.esc)="onEscape(picker)" (blur)="blur()">
 		<mat-datepicker #picker="matDatepicker"></mat-datepicker>
 		<label class="textfield-label" for="date">Quand ?</label>
 		<i class="textfield-suffix icon">calendar</i>

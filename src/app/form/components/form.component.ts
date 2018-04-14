@@ -16,7 +16,7 @@ export class MfFormComponent {
 	adresses = [];
 	@ViewChild('addressInput') addressInput: ElementRef;
 	@ViewChild('dateInput') dateInput: ElementRef;
-	
+
 	constructor(
 		private addressService: AddressService,
 	) {}
