@@ -3,6 +3,7 @@ import { AddressService } from '../address.service';
 import { Observable } from 'rxjs/Observable';
 import { MatDatepicker } from '@angular/material';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/of';
 
 @Component({
 	selector: 'mf-form',
