@@ -1,8 +1,8 @@
 export interface IGmapApiResponse {
-	results: IGmapLocation[];
+	results: IGmapGeocode[];
 }
 
-export interface IGmapLocation {
+export interface IGmapGeocode {
 	address_components: IGmapAdressComponent[];
 	formatted_address: string;
 	geometry: IGmapGeometry;
@@ -15,9 +15,9 @@ export interface IGmapAdressComponent {
 	types: string[];
 }
 export interface IGmapGeometry {
-	location: IGMapLocation;
+	location: IGmapLocation;
 }
-export interface IGMapLocation {
+export interface IGmapLocation {
 	lat: number;
 	lng: number;
 }
