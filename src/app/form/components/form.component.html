@@ -1,0 +1,19 @@
+<form (ngSubmit)="submit()" #form="ngForm" class="form">
+	<div class="textfield mod-material mod-inline">
+		<input class="textfield-input is-filled" name="address" #addressInput [(ngModel)]="model.address" (ngModelChange)="searchAddresses(model.address)" required [matAutocomplete]="matAutocomplete">
+		<mat-autocomplete #matAutocomplete="matAutocomplete">
+			<mat-option *ngFor="let adress of adresses" [value]="adress">{{ adress }}	</mat-option>
+		</mat-autocomplete>
+		<label class="textfield-label" for="address">Où ?</label>
+		<i class="textfield-suffix icon">search</i>
+	</div>
+	<div class="textfield mod-material mod-inline">
+		<input class="textfield-input is-filled" name="date" #dateInput [(ngModel)]="model.date"
+		[matDatepicker]="picker" required
+		(click)="togglePicker(picker)" (focus)="focus(picker)" (keydown.tab)="onTab(picker)" (keydown.enter)="onEnter(picker)" (keydown.esc)="onEscape(picker)" (blur)="blur()">
+		<mat-datepicker #picker="matDatepicker"></mat-datepicker>
+		<label class="textfield-label" for="date">Quand ?</label>
+		<i class="textfield-suffix icon">calendar</i>
+	</div>
+	<button class="button" [ngClass]="{'is-disabled': form.invalid }"><i class="icon">arrow_east</i></button>
+</form>

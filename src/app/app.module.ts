@@ -1,22 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule, MatOptionModule } from '@angular/material';
-
-
 import { AppComponent } from './app.component';
-
+import { MfFormModule } from './form';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
 	],
 	imports: [
 		BrowserModule,
-		MatAutocompleteModule,
-		MatOptionModule,
+		MfFormModule,
 	],
 	providers: [
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [
+		AppComponent,
+	],
 })
 export class AppModule { }
