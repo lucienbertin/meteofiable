@@ -26,7 +26,7 @@ export class MfFormComponent {
 	}
 	searchAddresses(clue = '') {
 		this.addressService.searchAddresses(clue)
-		.subscribe(results => this.adresses = results);
+		.subscribe(results => this.adresses = results.map(r => r.formatted_address));
 	}
 
 	openPicker(picker: MatDatepicker<any>) {
