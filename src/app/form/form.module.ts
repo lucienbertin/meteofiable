@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule, MatOptionModule, MatDatepickerModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -20,6 +21,7 @@ import { AddressService } from './address.service';
 	],
 	imports: [
 		CommonModule,
+		MatMomentDateModule,
 		MatAutocompleteModule,
 		MatOptionModule,
 		MatDatepickerModule,
