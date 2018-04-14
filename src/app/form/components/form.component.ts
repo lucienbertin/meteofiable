@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { MatDatepicker } from '@angular/material';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
+import { Moment } from 'moment';
 
 @Component({
 	selector: 'mf-form',
@@ -12,7 +13,7 @@ import 'rxjs/add/observable/of';
 	moduleId: module.id,
 })
 export class MfFormComponent {
-	model = {};
+	model: { address?: string, date?: Moment } = {};
 	adresses = [];
 	@ViewChild('addressInput') addressInput: ElementRef;
 	@ViewChild('dateInput') dateInput: ElementRef;
@@ -21,7 +22,7 @@ export class MfFormComponent {
 		private addressService: AddressService,
 	) {}
 	submit() {
-
+		console.log(`address: ${this.model.address} | date: ${this.model.date.format('ll')}`);
 	}
 	searchAddresses(clue = '') {
 		this.addressService.searchAddresses(clue)
