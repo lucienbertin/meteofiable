@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { LocationStoreModule } from 'app/common';
+
 import {
 	MfFormComponent,
 } from './components';
@@ -27,6 +29,7 @@ import { AddressService } from './address.service';
 		MatDatepickerModule,
 		FormsModule,
 		HttpClientModule,
+		LocationStoreModule,
 	],
 	providers: [
 		AddressService,

@@ -6,6 +6,9 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
 import { Moment } from 'moment';
 
+import { SetAdressCmd } from 'app/common';
+import { Store } from '@ngrx/store';
+
 @Component({
 	selector: 'mf-form',
 	templateUrl: 'form.component.html',
@@ -20,9 +23,11 @@ export class MfFormComponent {
 
 	constructor(
 		private addressService: AddressService,
+		private store$: Store<any>,
 	) {}
 	submit() {
 		console.log(`address: ${this.model.address} | date: ${this.model.date.format('ll')}`);
+		this.store$.dispatch(new SetAdressCmd(this.model.address));
 	}
 	searchAddresses(clue = '') {
 		this.addressService.searchAddresses(clue)
