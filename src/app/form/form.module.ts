@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LocationStoreModule, GmapModule } from 'app/common';
+import { LocationStoreModule, GmapModule, DateStoreModule } from 'app/common';
 
 import {
 	MfFormComponent,
@@ -28,6 +28,7 @@ import {
 		MatDatepickerModule,
 		FormsModule,
 		LocationStoreModule,
+		DateStoreModule,
 		GmapModule,
 	],
 	providers: [

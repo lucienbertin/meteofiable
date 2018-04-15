@@ -5,8 +5,9 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
 import { Moment } from 'moment';
 
-import { SetAdressCmd, GmapService } from 'app/common';
+import { SetAdressCmd, GmapService, SetDateCmd } from 'app/common';
 import { Store } from '@ngrx/store';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
 	selector: 'mf-form',
@@ -19,14 +20,17 @@ export class MfFormComponent {
 	adresses = [];
 	@ViewChild('addressInput') addressInput: ElementRef;
 	@ViewChild('dateInput') dateInput: ElementRef;
+	@ViewChild('form') form: NgForm;
 
 	constructor(
 		private gmapService: GmapService,
 		private store$: Store<any>,
 	) {}
 	submit() {
-		console.log(`address: ${this.model.address} | date: ${this.model.date.format('ll')}`);
-		this.store$.dispatch(new SetAdressCmd(this.model.address));
+		if (this.form.valid) {
+			this.store$.dispatch(new SetAdressCmd(this.model.address));
+			this.store$.dispatch(new SetDateCmd(this.model.date));
+		}
 	}
 	searchAddresses(clue = '') {
 		this.gmapService.searchAddresses(clue)
