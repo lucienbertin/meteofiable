@@ -5,6 +5,7 @@ import { Effect } from '@ngrx/effects';
 import { MfActions, DoNothingCommand, ARequest } from 'app/core';
 
 import { SetAdressCmd } from './location.command';
+import { SetGeocodeEvt } from './location.event';
 import { GmapService } from 'app/common/gmap';
 import { IGmapGeocode } from 'app/models';
 
@@ -23,7 +24,8 @@ export class LocationEffect {
 		.setCall(() => this.gmapService.searchAddresses(c.payload.address).map(geocodes => geocodes[0]))
 	);
 	@Effect() callAddressApi = this.actions$.call(new AddressToGeocodeRequest());
-
+	@Effect() gotGeocodeFromAddress = this.actions$.success(new AddressToGeocodeRequest())
+	.map(r => new SetGeocodeEvt(r.data).follow(r));
 	constructor(
 		private actions$: MfActions,
 		private gmapService: GmapService,
