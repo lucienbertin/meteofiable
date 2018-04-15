@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AddressService } from '../address.service';
 import { Observable } from 'rxjs/Observable';
 import { MatDatepicker } from '@angular/material';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
 import { Moment } from 'moment';
 
-import { SetAdressCmd } from 'app/common';
+import { SetAdressCmd, GmapService } from 'app/common';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -22,7 +21,7 @@ export class MfFormComponent {
 	@ViewChild('dateInput') dateInput: ElementRef;
 
 	constructor(
-		private addressService: AddressService,
+		private gmapService: GmapService,
 		private store$: Store<any>,
 	) {}
 	submit() {
@@ -30,7 +29,7 @@ export class MfFormComponent {
 		this.store$.dispatch(new SetAdressCmd(this.model.address));
 	}
 	searchAddresses(clue = '') {
-		this.addressService.searchAddresses(clue)
+		this.gmapService.searchAddresses(clue)
 		.subscribe(results => this.adresses = results.map(r => r.formatted_address));
 	}
 

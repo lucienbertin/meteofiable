@@ -6,12 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { LocationStoreModule } from 'app/common';
+import { LocationStoreModule, GmapModule } from 'app/common';
 
 import {
 	MfFormComponent,
 } from './components';
-import { AddressService } from './address.service';
 
 
 @NgModule({
@@ -28,11 +27,10 @@ import { AddressService } from './address.service';
 		MatOptionModule,
 		MatDatepickerModule,
 		FormsModule,
-		HttpClientModule,
 		LocationStoreModule,
+		GmapModule,
 	],
 	providers: [
-		AddressService,
 	],
 })
 export class MfFormModule { }
