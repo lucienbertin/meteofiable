@@ -14,13 +14,6 @@ class AddressToGeocodeRequest extends ARequest<IGmapGeocode> {
 		super('[req] gmap - address to geocode');
 	}
 }
-class DebugAction extends AAction<number> {
-	constructor(a: AAction) {
-		super(
-			`[debug] '${a.type}' correlated to command of id: ${a.commandId}`,
-		);
-	}
-}
 @Injectable()
 export class LocationEffect {
 	@Effect() setAddressHandler = this.actions$

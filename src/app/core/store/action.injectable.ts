@@ -64,7 +64,7 @@ function call<R extends ARequest = ARequest>(request: R) {
 function correlated<A extends AAction = AAction>(action: A): UnaryFunction<MfActions, MfActions> {
 	return function(source: MfActions): MfActions {
 		const ofSource = of(action)(source) as MfActions<A>;
-		const correlatedActions = mergeMap((a: A) => filter((b: AAction) => b.commandId === a.commandId)(source))(ofSource) as MfActions;
+		const correlatedActions = mergeMap((a: A) => filter((b: AAction) => b.correlationId === a.correlationId)(source))(ofSource) as MfActions;
 		return correlatedActions;
 	};
 }
