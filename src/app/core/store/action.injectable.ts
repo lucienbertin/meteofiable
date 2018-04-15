@@ -1,4 +1,4 @@
-import {AAction} from './action.model';
+import {AAction, ASuccessableAction, followUp} from './action.model';
 import {ARequest} from './request.model';
 import {Injectable, Inject} from '@angular/core';
 import {ScannedActionsSubject} from '@ngrx/store';
@@ -17,21 +17,28 @@ export class MfActions<A extends AAction = AAction> extends NgrxActions<A> {
 	of<B extends AAction = AAction>(b: B): MfActions<B> {
 		return of(b)(this as MfActions<A>) as MfActions<B>;
 	}
+	success<B extends ASuccessableAction = ASuccessableAction>(b: B): MfActions<B> {
+		return success(b)(this as MfActions<A>) as MfActions<B>;
+	}
+	error<B extends ASuccessableAction = ASuccessableAction>(b: B): MfActions<B> {
+		return error(b)(this as MfActions<A>) as MfActions<B>;
+	}
 	call<R extends ARequest = ARequest>(r: R): MfActions<R> {
 		return call(r)(this.of(r) as MfActions<R>) as MfActions<R>;
-		// return this.actions$.ofType<R>(req.type)
-		// .switchMap(r => {
-		// 	return r.callFn()
-		// 	.map(result => r.onSuccess(result))
-		// 	.catch(error => Observable.of(r.onError(error)));
-		// });
 	}
 }
 function of<A extends AAction = AAction>(action: A) {
 	return filter((a: AAction): a is A => a.type === action.type);
+}
+function success<A extends ASuccessableAction = ASuccessableAction>(action: A) {
+	return filter((a: AAction): a is A => a.type === followUp(action.type, true));
+}
+function error<A extends ASuccessableAction = ASuccessableAction>(action: A) {
+	return filter((a: AAction): a is A => a.type === followUp(action.type, false));
 }
 function call<R extends ARequest = ARequest>(request: R) {
 	return switchMap(
 		(r: R) => catchError(e => r.onError(e))(map(result => r.onSuccess(result))(r.callFn()))
 	);
 }
+
