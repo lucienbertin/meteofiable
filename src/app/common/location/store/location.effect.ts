@@ -1,8 +1,6 @@
-// import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Effect } from '@ngrx/effects';
-import { MfActions, DoNothingCommand, ARequest, AAction } from 'app/core';
+import { MfActions, ARequest } from 'app/core';
 
 import { SetAdressCmd } from './location.command';
 import { SetGeocodeEvt } from './location.event';
