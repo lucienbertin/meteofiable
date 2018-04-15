@@ -7,12 +7,21 @@ import {Observable} from 'rxjs/Observable';
 import {filter} from 'rxjs/operators/filter';
 import {switchMap} from 'rxjs/operators/switchMap';
 import {map} from 'rxjs/operators/map';
+import {mergeMap} from 'rxjs/operators/mergeMap';
 import {catchError} from 'rxjs/operators/catchError';
+import { UnaryFunction } from 'rxjs/interfaces';
+import { Operator } from 'rxjs/Operator';
 
 @Injectable()
 export class MfActions<A extends AAction = AAction> extends NgrxActions<A> {
 	constructor(@Inject(ScannedActionsSubject) source?: Observable<A>) {
 		super(source);
+	}
+
+	lift<R>(operator: Operator<A, R>): Observable<R> {
+		const observable = <any>(new MfActions(this));
+		observable.operator = operator;
+		return observable;
 	}
 	of<B extends AAction = AAction>(b: B): MfActions<B> {
 		return of(b)(this as MfActions<A>) as MfActions<B>;
@@ -25,6 +34,9 @@ export class MfActions<A extends AAction = AAction> extends NgrxActions<A> {
 	}
 	call<R extends ARequest = ARequest>(r: R): MfActions<R> {
 		return call(r)(this.of(r) as MfActions<R>) as MfActions<R>;
+	}
+	correlated<B extends AAction = AAction>(b: B): MfActions<A> {
+		return correlated(b)(this) as MfActions<A>;
 	}
 }
 function of<A extends AAction = AAction>(action: A) {
@@ -41,4 +53,10 @@ function call<R extends ARequest = ARequest>(request: R) {
 		(r: R) => catchError(e => r.onError(e))(map(result => r.onSuccess(result))(r.callFn()))
 	);
 }
-
+function correlated<A extends AAction = AAction>(action: A): UnaryFunction<MfActions<AAction>, MfActions<AAction>> {
+	return function(source: MfActions<AAction>): MfActions<AAction> {
+		const ofSource = of(action)(source) as MfActions<A>;
+		const correlatedActions = mergeMap((a: A) => filter((b: AAction) => b.commandId === a.commandId)(source))(ofSource) as MfActions<AAction>;
+		return correlatedActions;
+	};
+}
