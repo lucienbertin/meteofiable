@@ -31,13 +31,13 @@ export abstract class AEnricherAction<T = any> extends AAction<T> {
 }
 export abstract class ASuccessableAction<T = any> extends AAction<T> {
 	onSuccess(data?: T) {
-		const fuAction = Object.create(this);
+		const fuAction = Object.create(this).follow(this);
 		fuAction.type = followUp(this.type, true);
 		fuAction.data = data;
 		return fuAction;
 	}
 	onError(error?: any) {
-		const fuAction = Object.create(this);
+		const fuAction = Object.create(this).follow(this);
 		fuAction.type = followUp(this.type, false);
 		fuAction.payload = { ...this.payload, error: error };
 		return fuAction;
