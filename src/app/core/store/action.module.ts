@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { Actions } from './action.injectable';
+import { MfActions } from './action.injectable';
 
 @NgModule({
 	imports: [
@@ -10,7 +10,7 @@ import { Actions } from './action.injectable';
 		EffectsModule,
 	],
 	providers: [
-		Actions,
+		MfActions,
 	],
 })
 export class ActionModule { }

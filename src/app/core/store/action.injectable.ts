@@ -6,12 +6,12 @@ import {Observable} from 'rxjs/Observable';
 import {filter} from 'rxjs/operators/filter';
 
 @Injectable()
-export class Actions<A extends AAction = AAction> extends NgrxActions<A> {
+export class MfActions<A extends AAction = AAction> extends NgrxActions<A> {
 	constructor(@Inject(ScannedActionsSubject) source?: Observable<A>) {
 		super(source);
 	}
-	of<B extends A = A>(b: B): Actions<B> {
-		return of(b)(this as Actions<A>) as Actions<B>;
+	of<B extends AAction = AAction>(b: B): MfActions<B> {
+		return of(b)(this as MfActions<A>) as MfActions<B>;
 	}
 }
 export function of<A extends AAction = AAction>(action: A) {
