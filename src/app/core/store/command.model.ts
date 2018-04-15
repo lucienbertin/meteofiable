@@ -4,8 +4,8 @@ function generateId() {
 	return currentId++;
 }
 export abstract class ACommand<T = any> extends ASuccessableAction<T> {
-	readonly commandId = generateId();
-	readonly commandType = this.type;
+	commandId = generateId();
+	commandType = this.type;
 }
 export class DoNothingCommand extends ACommand {
 	constructor() { super('[cmd] do nothing'); }
