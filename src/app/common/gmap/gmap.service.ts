@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { IGmapApiResponse, IGmapGeocode } from 'app/common';
+import { IGmapApiResponse, IGmapGeocode } from 'app/models';
 
 @Injectable()
-export class AddressService {
+export class GmapService {
 	private gmapApi = 'https://maps.googleapis.com/maps/api/geocode/json';
 	constructor(
 		private http: HttpClient,

@@ -1,4 +1,4 @@
-import { IGmapGeocode } from '../common';
+import { IGmapGeocode } from './gmap.model';
 import { Moment } from 'moment';
 
 export interface IForecast {
