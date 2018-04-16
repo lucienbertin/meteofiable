@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatAutocompleteModule, MatOptionModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { MfFormModule } from './form';
+import { ForecastModule } from './forecast';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -14,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 	imports: [
 		BrowserModule,
 		MfFormModule,
+		ForecastModule,
 
 		StoreModule.forRoot({}),
 		EffectsModule.forRoot([]),

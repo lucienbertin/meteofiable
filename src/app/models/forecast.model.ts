@@ -17,8 +17,10 @@ export class Forecast implements IForecast {
 		public date: Moment,
 		public weather = Weather.sunny,
 		public temperature = 25) {
-			this.city = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'locality')).short_name;
-			this.country = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'country')).short_name;
+			const cityComponent = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'locality'));
+			this.city = !!cityComponent ? cityComponent.long_name : '';
+			const countryComponent = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'country'));
+			this.country = !!countryComponent ? countryComponent.long_name : '';
 		}
 }
 export enum Weather {
