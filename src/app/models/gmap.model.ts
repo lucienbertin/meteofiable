@@ -1,5 +1,6 @@
 export interface IGmapApiResponse {
-	results: IGmapGeocode[];
+	results?: IGmapGeocode[];
+	result?: IGmapGeocode;
 }
 
 export interface IGmapGeocode {
