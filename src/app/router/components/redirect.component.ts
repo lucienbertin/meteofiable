@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Moment } from 'moment';
+import * as moment from 'moment';
 import { IGmapGeocode } from 'app/models';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { SetPlaceIdCmd, SetDateCmd } from 'app/common';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
 	selector: 'mf-redirect',
@@ -12,7 +14,18 @@ import { Store } from '@ngrx/store';
 })
 export class RedirectComponent implements OnInit {
 	constructor(
+		private route: ActivatedRoute,
+		private store$: Store<{}>
 	) {}
 	ngOnInit() {
+		const params = (this.route.queryParams as BehaviorSubject<any>).getValue();
+		if (!!params.placeId) {
+			const placeId = params.placeId;
+			this.store$.dispatch(new SetPlaceIdCmd(placeId));
+		}
+		if (!!params.date) {
+			const date = moment(params.date);
+			this.store$.dispatch(new SetDateCmd(date));
+		}
 	}
 }
