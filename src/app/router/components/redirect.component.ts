@@ -19,9 +19,9 @@ export class RedirectComponent implements OnInit {
 	) {}
 	ngOnInit() {
 		const params = (this.route.queryParams as BehaviorSubject<any>).getValue();
-		if (!!params.placeId) {
-			const placeId = params.placeId;
-			this.store$.dispatch(new SetPlaceIdCmd(placeId));
+		if (!!params.place) {
+			const place = params.place;
+			this.store$.dispatch(new SetPlaceIdCmd(place));
 		}
 		if (!!params.date) {
 			const date = moment(params.date);

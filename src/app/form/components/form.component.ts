@@ -18,6 +18,7 @@ import { Form, NgForm } from '@angular/forms';
 export class MfFormComponent {
 	model: { address?: string, date?: Moment } = {};
 	adresses = [];
+	cities = [];
 	@ViewChild('addressInput') addressInput: ElementRef;
 	@ViewChild('dateInput') dateInput: ElementRef;
 	@ViewChild('form') form: NgForm;
@@ -34,7 +35,10 @@ export class MfFormComponent {
 	}
 	searchAddresses(clue = '') {
 		this.gmapService.searchAddresses(clue)
-		.subscribe(results => this.adresses = results.map(r => r.formatted_address));
+		.subscribe(results => {
+			this.adresses = results.map(r => r.formatted_address);
+			this.cities = results.map(r => r.address_components.find(ac => !!ac.types.find(t => t === 'locality')).long_name);
+		});
 	}
 
 	openPicker(picker: MatDatepicker<any>) {
