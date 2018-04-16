@@ -1,1 +1,2 @@
-export * from './gmap.model';
+export * from './gmap.module';
+export * from './gmap.service';

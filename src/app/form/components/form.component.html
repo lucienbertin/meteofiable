@@ -5,7 +5,8 @@
 			<mat-option *ngFor="let adress of adresses" [value]="adress">{{ adress }}	</mat-option>
 		</mat-autocomplete>
 		<label class="textfield-label" for="address">Où ?</label>
-		<i class="textfield-suffix icon">search</i>
+		<i class="textfield-suffix icon">pin</i>
+		<!-- <i class="textfield-suffix icon">location</i> -->
 	</div>
 	<div class="textfield mod-material mod-inline">
 		<input class="textfield-input is-filled" name="date" #dateInput [(ngModel)]="model.date"
