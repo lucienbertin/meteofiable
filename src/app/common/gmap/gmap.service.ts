@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { IGmapApiResponse, IGmapGeocode } from 'app/models';
+
 const MAGIC_KEY = 'AIzaSyBk8hm7dZFrmiq9BmgKVcfv_NiMigtKPjY';
 @Injectable()
 export class GmapService {
