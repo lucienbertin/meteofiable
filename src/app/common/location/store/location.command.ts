@@ -10,12 +10,12 @@ export class SetAdressCmd extends ACommand<IGmapGeocode> {
 		);
 	}
 }
-export class SetLocationCmd extends ACommand<IGmapGeocode> {
-	constructor(location?: IGmapLocation) {
+export class SetPlaceIdCmd extends ACommand<IGmapGeocode> {
+	constructor(placeId?: string) {
 		super(
-			'[cmd] set location',
+			'[cmd] set place id',
 			undefined,
-			{ location: location },
+			{ placeId: placeId },
 		);
 	}
 }
