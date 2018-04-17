@@ -7,7 +7,8 @@ import {
 	RedirectComponent,
 } from './components';
 import { redirectRoute } from './router.route';
-
+import { RouterTrigger } from './router.trigger';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
 	declarations: [
@@ -15,14 +16,13 @@ import { redirectRoute } from './router.route';
 	],
 	exports: [
 		RedirectComponent,
-		RouterModule,
 	],
 	imports: [
 		CommonModule,
 		LocationStoreModule,
 		DateStoreModule,
-		// RouterModule.forChild(redirectRoute),
-		// RouterModule,
+		RouterModule,
+		EffectsModule.forFeature([RouterTrigger]),
 	],
 	providers: [
 	],
