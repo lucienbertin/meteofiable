@@ -34,7 +34,9 @@ export class MfFormComponent {
 	}
 	searchAddresses(clue = '') {
 		this.gmapService.searchAddresses(clue)
-		.subscribe(results => this.adresses = results.map(r => r.formatted_address));
+		.subscribe(results => {
+			this.adresses = results.map(r => r.formatted_address);
+		});
 	}
 
 	openPicker(picker: MatDatepicker<any>) {
