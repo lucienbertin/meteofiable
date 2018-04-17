@@ -3,7 +3,6 @@
 		<input class="textfield-input is-filled" name="address" #addressInput [(ngModel)]="model.address" (ngModelChange)="searchAddresses(model.address)" required [matAutocomplete]="matAutocomplete">
 		<mat-autocomplete #matAutocomplete="matAutocomplete">
 			<mat-option *ngFor="let adress of adresses" [value]="adress">{{ adress }}</mat-option>
-			<!-- <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option> -->
 		</mat-autocomplete>
 		<label class="textfield-label" for="address">Où ?</label>
 		<i class="textfield-suffix icon">pin</i>
