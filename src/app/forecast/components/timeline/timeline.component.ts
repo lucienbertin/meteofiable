@@ -40,7 +40,7 @@ export class TimelineComponent implements OnInit {
 				if (!!geocode && !!date) {
 					return deltaDays.map(d => new Forecast(geocode, moment(date).add(d, 'days')));
 				}
-				return undefined;
+				return [];
 			}
 		);
 	}
