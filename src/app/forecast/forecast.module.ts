@@ -5,15 +5,21 @@ import { LocationStoreModule, DateStoreModule } from 'app/common';
 
 import {
 	ForecastComponent,
+	ForecastDetailComponent,
+	TimelineComponent,
 } from './components';
 
 
 @NgModule({
 	declarations: [
 		ForecastComponent,
+		ForecastDetailComponent,
+		TimelineComponent,
 	],
 	exports: [
 		ForecastComponent,
+		ForecastDetailComponent,
+		TimelineComponent,
 	],
 	imports: [
 		CommonModule,
