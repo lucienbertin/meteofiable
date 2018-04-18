@@ -1,0 +1,3 @@
+<div *ngFor="let forecast in timeline$ | async">
+	{{forecast.date.format() }} - {{forecast.city}}
+</div>
