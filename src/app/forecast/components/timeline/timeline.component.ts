@@ -9,9 +9,9 @@ import { IGmapGeocode, IForecast, Forecast } from 'app/models';
 import { ILocationStore, IDateStore } from 'app/common';
 const deltaDays = [-1, 0, 1, 2, 3, 4, 5];
 @Component({
-	selector: 'mf-tineline',
-	templateUrl: 'tineline.component.html',
-	styleUrls: ['tineline.component.scss'],
+	selector: 'mf-timeline',
+	templateUrl: 'timeline.component.html',
+	styleUrls: ['timeline.component.scss'],
 	moduleId: module.id,
 })
 export class TimelineComponent implements OnInit {

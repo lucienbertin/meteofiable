@@ -1,3 +1,5 @@
-<div *ngFor="let forecast in timeline$ | async">
-	{{forecast.date.format() }} - {{forecast.city}}
-</div>
+<ul>
+	<li *ngFor="let forecast of timeline$ | async">
+		<mf-forecast-detail [forecast]="forecast"></mf-forecast-detail>
+	</li>
+</ul>
