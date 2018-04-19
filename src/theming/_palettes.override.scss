@@ -1,34 +1,8 @@
 $palettes: (
 	"primary": (
-			"color": #734f97,
+			"color": #fcc00E,
 			"text": #FFF,
-			"accent": #C354A4
 	),
-	"secondary": (
-			"color": #66CCAA,
-			"text": #FFFFFF,
-			"accent": #66cc94
-	),
-	"success": (
-			"color": #3ad492,
-			"text": #FFF,
-			"accent": #5DE7DA
-	),
-	"error": (
-			"color": #d03325,
-			"text": #FFFFFF,
-			"accent": #f36d1f
-	),
-	"dark": (
-			"color": #383F5D,
-			"text": #FFFFFF,
-			"accent": #734f97
-	),
-
-	"light": (
-			"color": #FAFAFA,
-			"text": _color("text.light"),
-	)
 );
 
 $theme: _set($theme, "palettes", $palettes);
