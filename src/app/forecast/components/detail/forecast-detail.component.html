@@ -1,12 +1,15 @@
 <h3>
-	{{ forecast.weather }}
+	{{ forecast?.weather }}
 </h3>
 <h1>
-	{{ forecast.temperature }}
+	{{ forecast?.temperature }}
 </h1>
 <h2>
-	{{ forecast.city }}
+	{{ forecast?.city }}
 </h2>
+<h3>
+	{{ forecast?.date?.format('dddd') }}
+</h3>
 <span>
-	{{ forecast.date.format() }}
+	{{ forecast?.date?.format('D MMMM') }}
 </span>
