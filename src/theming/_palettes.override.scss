@@ -3,6 +3,10 @@ $palettes: (
 			"color": #fcc00E,
 			"text": #FFF,
 	),
+	"secondary": (
+		"color": #fff,
+		"text": #cecece,
+		)
 );
 
 $theme: _set($theme, "palettes", $palettes);
