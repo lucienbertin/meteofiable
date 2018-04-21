@@ -2,6 +2,7 @@
 @import '~@lucca-front/ng/src/style/mixins';
 
 :host {
+	color: white;
 	> div {
 		margin: .5rem 0;
 	}
