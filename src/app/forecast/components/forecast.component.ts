@@ -5,7 +5,7 @@ import 'rxjs/add/observable/combineLatest';
 import { Moment } from 'moment';
 
 import { Store } from '@ngrx/store';
-import { IGmapGeocode, IForecast, Forecast } from 'app/models';
+import { IGmapGeocode, IForecast, Forecast, Weather } from 'app/models';
 import { ILocationStore, IDateStore } from 'app/common';
 
 @Component({
@@ -38,7 +38,7 @@ export class ForecastComponent implements OnInit {
 			this.date$,
 			(geocode, date) => {
 				if (!!geocode && !!date) {
-					return new Forecast(geocode, date);
+					return new Forecast(geocode, date, Weather.sunny);
 				}
 				return undefined;
 			}
