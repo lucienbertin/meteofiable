@@ -6,8 +6,10 @@ import { Randomizer } from './randomizer';
 export interface IForecast {
 	geocode: IGmapGeocode;
 	date: Moment;
-	weather: Weather;
-	temperature: number;
+	weather?: Weather;
+	temperature?: number;
+	wind?: number;
+	humidity?: number;
 	city: string;
 	country: string;
 }
@@ -17,7 +19,7 @@ export class Forecast implements IForecast {
 	constructor(
 		public geocode: IGmapGeocode,
 		public date: Moment,
-		public weather = Weather.sunny,
+		public weather?: Weather,
 		public temperature = 25,
 		public wind = 5,
 		public humidity = 35,
@@ -30,14 +32,20 @@ export class Forecast implements IForecast {
 		const seedKey = `${this.geocode.place_id}${this.date.toISOString()}`;
 		// random stuff
 		const random = new Randomizer(seedKey);
-		this.temperature = Math.floor(20 + 7 * random.next());
+		this.temperature = Math.floor(23 + 4 * random.next());
 		this.wind = Math.floor(10 * random.next());
 		this.humidity = Math.floor(20 + 30 * random.next());
-
+		if (!this.weather) {
+			this.weather = random.next() > .5 ? Weather.cloudy : Weather.sunny;
+		}
 		if (this.weather === Weather.rainy) {
 			this.temperature -= 10;
 			this.wind += 20;
 			this.humidity += 30;
+		}
+		if (this.weather === Weather.cloudy) {
+			this.temperature -= 2;
+			this.wind += 10;
 		}
 	}
 }
