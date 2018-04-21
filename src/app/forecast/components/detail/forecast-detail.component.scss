@@ -16,7 +16,10 @@
 		font-weight: 300;
 	}
 	.temperature {
-		font-size: 10rem;
+		font-size: 6rem;
+		@include media_larger_than('lg') {
+			font-size: 10rem;
+		}
 		.unit {
 			font-size: 50%;
 			opacity: .5;
