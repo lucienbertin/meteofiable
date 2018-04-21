@@ -20,5 +20,7 @@
 
 	mf-timeline {
 		grid-area: timeline;
+		align-self: flex-end;
+		justify-content: flex-end;
 	}
 }
