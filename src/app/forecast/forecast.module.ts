@@ -7,6 +7,7 @@ import {
 	ForecastComponent,
 	ForecastDetailComponent,
 	TimelineComponent,
+	TimelineForecastComponent,
 } from './components';
 
 
@@ -15,11 +16,13 @@ import {
 		ForecastComponent,
 		ForecastDetailComponent,
 		TimelineComponent,
+		TimelineForecastComponent,
 	],
 	exports: [
 		ForecastComponent,
 		ForecastDetailComponent,
 		TimelineComponent,
+		TimelineForecastComponent,
 	],
 	imports: [
 		CommonModule,

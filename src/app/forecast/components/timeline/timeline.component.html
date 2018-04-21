@@ -1,5 +1,1 @@
-<ul>
-	<li *ngFor="let forecast of timeline$ | async">
-		<mf-forecast-detail [forecast]="forecast"></mf-forecast-detail>
-	</li>
-</ul>
+<mf-timeline-forecast class="timeline-forecast" *ngFor="let forecast of timeline$ | async" [forecast]="forecast"></mf-timeline-forecast>

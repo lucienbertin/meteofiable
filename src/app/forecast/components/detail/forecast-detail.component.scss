@@ -1,0 +1,48 @@
+@import '~@lucca-front/ng/src/style/theming.overridable';
+@import '~@lucca-front/ng/src/style/mixins';
+
+:host {
+	> div {
+		margin: .5rem 0;
+	}
+	line-height: initial;
+	.weather {
+		font-size: 2rem;
+		font-weight: 300;
+	}
+	.temperature {
+		display: flex;
+		align-items: flex-start;
+		font-size: 10rem;
+		// font-weight: 300;
+		.unit {
+			margin-top: 1.2rem;
+			font-size: 50%;
+			opacity: .5;
+		}
+	}
+	.city {
+		padding: .3rem .8rem;
+		font-size: 2rem;
+		color: _color('blue');
+		background-color: white;
+		border-radius: 2px;
+		@include elevate();
+		display: inline-block;
+	}
+	.day {
+		font-size: 2rem;
+		text-transform: uppercase;
+	}
+	.date {
+		font-size: 1.5rem;
+	}
+	.wind {
+		opacity: .7;
+		font-weight: 300;
+	}
+	.humidity {
+		opacity: .7;
+		font-weight: 300;
+	}
+}

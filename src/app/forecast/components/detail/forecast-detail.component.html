@@ -1,4 +1,21 @@
-{{ forecast.date.format() }}
-{{ forecast.city }}
-{{ forecast.weather }}
-{{ forecast.temperature }}
+<div class="temperature">
+	{{ forecast?.temperature }}<span class="unit">ºC</span>
+</div>
+<div class="weather">
+	Grand soleil
+</div>
+<span class="city">
+	{{ forecast?.city }}
+</span>
+<div class="day">
+	{{ forecast?.date?.format('dddd') }}
+</div>
+<div class="date">
+	{{ forecast?.date?.format('D MMMM') }}
+</div>
+<div class="wind">
+	Vent {{ forecast?.wind }} <span class="unit">km/h</span>
+</div>
+<div class="humidity">
+	Humidité {{ forecast?.humidity }} <span class="unit">%</span>
+</div>
