@@ -3,6 +3,7 @@
 @import '~@lucca-front/ng/src/style/theming.overridable';
 @import '~@lucca-front/ng/src/plugins/ngMaterial/general';
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
 	background: #e1f2f6;
 	background: -moz-linear-gradient(-45deg, #e1f2f6 0%, #82b1ff 25%, #00b8d4 100%);
@@ -10,4 +11,6 @@ body {
 	background: linear-gradient(135deg, #e1f2f6 0%,#82b1ff 25%,#00b8d4 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1f2f6', endColorstr='#00b8d4',GradientType=1 );
 	background-size: cover;
+	color:white;
+	font-family: 'Roboto', sans-serif;
 }
