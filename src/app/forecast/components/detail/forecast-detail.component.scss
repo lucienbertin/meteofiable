@@ -2,6 +2,10 @@
 @import '~@lucca-front/ng/src/style/mixins';
 
 :host {
+	text-align: center;
+	@include media_larger_than('lg') {
+		text-align: left;
+	}
 	color: white;
 	> div {
 		margin: .5rem 0;
@@ -12,14 +16,11 @@
 		font-weight: 300;
 	}
 	.temperature {
-		display: flex;
-		align-items: flex-start;
 		font-size: 10rem;
-		// font-weight: 300;
 		.unit {
-			margin-top: 1.2rem;
 			font-size: 50%;
 			opacity: .5;
+			font-weight: 300;
 		}
 	}
 	.city {
