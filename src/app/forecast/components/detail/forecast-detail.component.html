@@ -1,8 +1,8 @@
-<div class="temperature">
-	{{ forecast?.temperature }}º
+<div class="weather">
+	Grand soleil
 </div>
-<div class="weather" [ngClass]="forecast?.weather">
-	<!-- {{ forecast?.weather }} -->
+<div class="temperature">
+	{{ forecast?.temperature }}<span class="unit">º</span>
 </div>
 <div class="city">
 	{{ forecast?.city }}
@@ -14,8 +14,8 @@
 	{{ forecast?.date?.format('D MMMM') }}
 </div>
 <div class="wind">
-	{{ forecast?.wind }} km/h
+	Vent {{ forecast?.wind }}<span class="unit">km/h</span>
 </div>
 <div class="humidity">
-	{{ forecast?.humidity }} %
+	Humidité {{ forecast?.humidity }}<span class="unit">%</span>
 </div>
