@@ -1,0 +1,11 @@
+:host {
+	padding: .75rem;
+	text-align: center;
+	.weather {
+		width: 4rem;
+		height: 4rem;
+		&.sunny {
+			background: url('/assets/sunny.svg') no-repeat;
+		}
+	}
+}

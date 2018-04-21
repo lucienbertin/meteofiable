@@ -1,0 +1,16 @@
+<div class="temperature">
+		{{ forecast?.temperature }}º
+	</div>
+	<div class="weather" [ngClass]="forecast?.weather">
+		<!-- {{ forecast?.weather }} -->
+	</div>
+	<div class="city">
+		{{ forecast?.city }}
+	</div>
+	<div class="day">
+		{{ forecast?.date?.format('dddd') }}
+	</div>
+	<div class="date">
+		{{ forecast?.date?.format('D MMMM') }}
+	</div>
+	
