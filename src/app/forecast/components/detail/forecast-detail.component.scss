@@ -1,14 +1,13 @@
 :host {
+	padding: .75rem;
 	text-align: center;
-	// .sunny {
-
-	// }
-	// .rainy {
-
-	// }
-	// .cloudy {
-
-	// }
+	.weather {
+		width: 4rem;
+		height: 4rem;
+		&.sunny {
+			background: url('/assets/sunny.svg') no-repeat;
+		}
+	}
 }
 :host.timeline-forecast {
 	.city {
@@ -19,4 +18,14 @@
 	.weather {
 		display: none;
 	}
+	.temperature {
+		font-size: 5rem;
+	}
+	.city {
+		font-size: 3rem;
+	}
+	.day {
+		font-size: 1.5rem;
+	}
+	
 }
