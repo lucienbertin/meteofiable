@@ -1,4 +1,5 @@
 @import "~@lucca-front/scss/src/theming.overridable";
+@import "~@lucca-front/scss/src/mixins";
 :host {
 	header {
 		position: fixed;
@@ -8,12 +9,17 @@
 		display: flex;
 		align-items: center;
 		z-index: 11;
-
+		@include elevate(2);
+		
 		#logo {
 			background-color: _color("primary");
-			color: _color("primary", "text");
+			color: _color("primary");
 			font-size: 2rem;
-			padding: .5rem 1rem;
+			padding: 1rem;
+			width: 10rem;
 		}
+	}
+	main {
+		margin-top: 7rem;
 	}
 }

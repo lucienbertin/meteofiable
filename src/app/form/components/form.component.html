@@ -1,5 +1,5 @@
 <form (ngSubmit)="submit()" #form="ngForm" class="form">
-	<div class="textfield mod-material mod-inline mod-noLabel">
+	<div class="textfield mod-material mod-inline mod-noLabel mod-longer">
 		<input class="textfield-input is-filled" name="address" #addressInput [(ngModel)]="model.address" (ngModelChange)="searchAddresses(model.address)" required [matAutocomplete]="matAutocomplete">
 		<mat-autocomplete #matAutocomplete="matAutocomplete">
 			<mat-option *ngFor="let adress of adresses" [value]="adress">{{ adress }}</mat-option>
