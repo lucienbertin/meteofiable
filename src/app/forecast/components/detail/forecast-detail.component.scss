@@ -1,0 +1,22 @@
+:host {
+	text-align: center;
+	// .sunny {
+
+	// }
+	// .rainy {
+
+	// }
+	// .cloudy {
+
+	// }
+}
+:host.timeline-forecast {
+	.city {
+		display: none;
+	}
+}
+:host.main-forecast {
+	.weather {
+		display: none;
+	}
+}
