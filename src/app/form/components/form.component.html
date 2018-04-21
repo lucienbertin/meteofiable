@@ -1,7 +1,7 @@
 <form (ngSubmit)="submit()" #form="ngForm" class="form">
 	<div class="textfield mod-material mod-inline mod-noLabel mod-longer">
 		<input class="textfield-input is-filled u-textSecondary" name="address" #addressInput [(ngModel)]="model.address" (ngModelChange)="searchAddresses(model.address)" required [matAutocomplete]="matAutocomplete">
-		<mat-autocomplete #matAutocomplete="matAutocomplete">
+		<mat-autocomplete #matAutocomplete="matAutocomplete" class=" u-textGrey">
 			<mat-option *ngFor="let adress of adresses" [value]="adress">{{ adress }}</mat-option>
 		</mat-autocomplete>
 		<i class="textfield-suffix icon u-textSecondary">pin</i>

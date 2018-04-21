@@ -6,7 +6,11 @@ $palettes: (
 	"secondary": (
 		"color": #fff,
 		"text": #cecece,
-		)
+	),
+	"grey": (
+		"color": #666,
+		"text": #cecece,
+	)
 );
 
 $theme: _set($theme, "palettes", $palettes);
