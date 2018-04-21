@@ -5,7 +5,10 @@
 		width: 4rem;
 		height: 4rem;
 		&.sunny {
-			background: url('/assets/sunny.svg') no-repeat;
+			background: url('/assets/sunny.svg') no-repeat center;
+		}
+		&.rainy {
+			background: url('/assets/rainy.svg') no-repeat center;
 		}
 	}
 }

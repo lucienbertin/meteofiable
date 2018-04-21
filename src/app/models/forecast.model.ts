@@ -28,10 +28,17 @@ export class Forecast implements IForecast {
 		this.country = !!countryComponent ? countryComponent.long_name : '';
 
 		const seedKey = `${this.geocode.place_id}${this.date.toISOString()}`;
+		// random stuff
 		const random = new Randomizer(seedKey);
 		this.temperature = Math.floor(20 + 7 * random.next());
 		this.wind = Math.floor(10 * random.next());
 		this.humidity = Math.floor(20 + 30 * random.next());
+
+		if (this.weather === Weather.rainy) {
+			this.temperature -= 10;
+			this.wind += 20;
+			this.humidity += 30;
+		}
 	}
 }
 export enum Weather {

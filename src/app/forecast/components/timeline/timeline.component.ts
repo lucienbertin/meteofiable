@@ -5,7 +5,7 @@ import 'rxjs/add/observable/combineLatest';
 import * as moment from 'moment';
 
 import { Store } from '@ngrx/store';
-import { IGmapGeocode, IForecast, Forecast } from 'app/models';
+import { IGmapGeocode, IForecast, Forecast, Weather } from 'app/models';
 import { ILocationStore, IDateStore } from 'app/common';
 const deltaDays = [-1, 0, 1, 2, 3, 4, 5];
 @Component({
@@ -38,7 +38,7 @@ export class TimelineComponent implements OnInit {
 			this.date$,
 			(geocode, date) => {
 				if (!!geocode && !!date) {
-					return deltaDays.map(d => new Forecast(geocode, moment(date).add(d, 'days')));
+					return deltaDays.map(d => new Forecast(geocode, moment(date).add(d, 'days'), d < 0 ? Weather.rainy : Weather.sunny));
 				}
 				return [];
 			}
