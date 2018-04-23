@@ -8,7 +8,41 @@
 			left: -1.5rem;
 		}
 	}
+	@include media_between('md','lg') {
+		form {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.textfield.mod-material, .textfield.mod-material.mod-longer {
+			margin-left: 1.5rem;
+		}
+	}
+	@include media_smaller_than('md') {
+		text-align: center;
+		.textfield.mod-material, .textfield.mod-material.mod-longer {
+			width: auto;
+			display: flex;
+			margin: .5rem 1.5rem .5rem 2rem;
+		}
+	}
+}
+
+:host(#form) {
 	@include media_smaller_than('lg') {
 		display: none;
 	}
 }
+
+:host(#form-large) {
+	form {
+		background: rgba(255, 255, 255, .2);
+		margin-bottom: 1px;
+		padding: 10px;
+	}
+
+	@include media_larger_than('lg') {
+		display: none;
+	}
+}
+

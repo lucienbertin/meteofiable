@@ -19,13 +19,29 @@
 			color: _color("primary");
 			font-size: 2rem;
 			padding: 1rem;
-			width: 10rem;
+			width: 100vw;
+			img {
+				width: 9rem;
+			}
+			@include media_larger_than('lg') {
+				width: 10rem;
+				img {
+					width: auto;
+				}
+			}
+
 		}
 	}
+
 	main {
-		// margin-top: 7rem;
 		margin-top: 3rem;
-		min-height: calc(100vh - 11rem)
+		min-height: calc(100vh - 11rem);
+		padding: 0;
+		position: relative;
+
+		@include media_smaller_than('md') {
+			width: auto;
+		}
 	}
 	footer {
 		background: rgba(255, 255, 255, .2);
