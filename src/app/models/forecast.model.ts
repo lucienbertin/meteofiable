@@ -21,7 +21,7 @@ export class Forecast implements IForecast {
 		public date: Moment,
 		public weather?: Weather,
 		public temperature = 25,
-		public wind = 5,
+		public wind = 10,
 		public humidity = 35,
 	) {
 		const cityComponent = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'locality'));
@@ -33,7 +33,7 @@ export class Forecast implements IForecast {
 		// random stuff
 		const random = new Randomizer(seedKey);
 		this.temperature = Math.floor(23 + 4 * random.next());
-		this.wind = Math.floor(10 * random.next());
+		this.wind = 5 + Math.floor(10 * random.next());
 		this.humidity = Math.floor(20 + 30 * random.next());
 		if (!this.weather) {
 			this.weather = random.next() > .5 ? Weather.cloudy : Weather.sunny;

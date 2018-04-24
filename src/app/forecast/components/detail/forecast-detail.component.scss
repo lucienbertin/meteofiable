@@ -2,29 +2,35 @@
 @import '~@lucca-front/ng/src/style/mixins';
 
 :host {
+	text-align: center;
+	font-size: 12px;
+	@include media_larger_than('md') {
+		text-align: left;
+		font-size: 1rem;
+	}
 	color: white;
 	> div {
 		margin: .5rem 0;
 	}
 	line-height: initial;
 	.weather {
-		font-size: 2rem;
+		font-size: 2em;
 		font-weight: 300;
 	}
 	.temperature {
-		display: flex;
-		align-items: flex-start;
-		font-size: 10rem;
-		// font-weight: 300;
+		font-size: 6em;
+		@include media_larger_than('lg') {
+			font-size: 10em;
+		}
 		.unit {
-			margin-top: 1.2rem;
 			font-size: 50%;
 			opacity: .5;
+			font-weight: 300;
 		}
 	}
 	.city {
 		padding: .3rem .8rem;
-		font-size: 2rem;
+		font-size: 2em;
 		color: _color('blue');
 		background-color: white;
 		border-radius: 2px;
@@ -32,11 +38,11 @@
 		display: inline-block;
 	}
 	.day {
-		font-size: 2rem;
+		font-size: 2em;
 		text-transform: uppercase;
 	}
 	.date {
-		font-size: 1.5rem;
+		font-size: 1.5em;
 	}
 	.wind {
 		opacity: .7;
