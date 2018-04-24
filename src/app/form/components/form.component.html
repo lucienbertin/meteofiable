@@ -9,9 +9,9 @@
 	</div>
 	<div class="textfield mod-material mod-inline mod-noLabel">
 		<input class="textfield-input is-filled u-textSecondary" name="date" #dateInput [(ngModel)]="model.date"
-		[matDatepicker]="picker" required
+		[matDatepicker]="picker" required [min]="min"
 		(click)="togglePicker(picker)" (focus)="focus(picker)" (keydown.tab)="onTab(picker)" (keydown.enter)="onEnter(picker)" (keydown.esc)="onEscape(picker)" (blur)="blur()">
-		<mat-datepicker #picker="matDatepicker" class=" u-textGrey"></mat-datepicker>
+		<mat-datepicker #picker="matDatepicker"></mat-datepicker>
 		<i class="textfield-suffix icon u-textSecondary">calendar</i>
 	</div>
 	<button class="button palette-primary" [ngClass]="{'is-disabled': form.invalid }">Valider</button>

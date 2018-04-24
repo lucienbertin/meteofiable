@@ -26,6 +26,7 @@ export class MfFormComponent implements OnInit, OnDestroy {
 	date$: Observable<Moment>;
 	model: { address?: string, date?: Moment } = {};
 	adresses = [];
+	min = moment().startOf('d');
 	@ViewChild('addressInput') addressInput: ElementRef;
 	@ViewChild('dateInput') dateInput: ElementRef;
 	@ViewChild('form') form: NgForm;
