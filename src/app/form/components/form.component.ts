@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { MatDatepicker } from '@angular/material';
 import 'rxjs/add/operator/delay';
@@ -21,6 +21,7 @@ import { Subscription } from 'rxjs/Subscription';
 	moduleId: module.id,
 })
 export class MfFormComponent implements OnInit, OnDestroy {
+	@Input() touchUi = false;
 	subs = new Subscription();
 	location$: Observable<IGmapGeocode>;
 	date$: Observable<Moment>;
