@@ -29,8 +29,8 @@ export class RedirectComponent implements OnInit {
 			const date = moment(params.date);
 			this.store$.dispatch(new SetDateCmd(date));
 		} else {
-			// tomorrow
-			this.store$.dispatch(new SetDateCmd(moment().add(1, 'd').startOf('d')));
+			// today if we're checking in the morning, tomorrow if not
+			this.store$.dispatch(new SetDateCmd(moment().add(12, 'hours').startOf('d')));
 		}
 	}
 }
