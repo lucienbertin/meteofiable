@@ -1,5 +1,5 @@
-import { IGmapGeocode } from 'app/models';
-import { AAction } from 'app/core';
+import { IGmapGeocode } from '@meteo/models';
+import { AAction } from '@meteo/core';
 
 import { SetGeocodeData } from './location.data';
 

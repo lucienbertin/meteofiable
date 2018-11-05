@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Effect } from '@ngrx/effects';
-import { MfActions } from 'app/core';
+import { MfActions } from '@meteo/core';
 
 import { SetDateCmd } from './date.command';
 import { SetDateEvt } from './date.event';

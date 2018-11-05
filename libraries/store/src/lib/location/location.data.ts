@@ -1,11 +1,9 @@
-// import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Effect } from '@ngrx/effects';
-import { MfActions, ADataAction } from 'app/core';
+import { MfActions, ADataAction } from '@meteo/core';
 
 import { SetGeocodeEvt } from './location.event';
-import { IGmapGeocode } from 'app/models';
+import { IGmapGeocode } from '@meteo/models';
 
 export class SetGeocodeData extends ADataAction<IGmapGeocode> {
 	constructor(geocode?: IGmapGeocode) {

@@ -23,7 +23,9 @@
       "@meteo/models": [
         "dist/models"
       ],
-
+      "@meteo/store": [
+        "dist/store"
+      ]
     }
   }
 }

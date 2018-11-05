@@ -1,4 +1,4 @@
-import { AEvent } from 'app/core';
+import { AEvent } from '@meteo/core';
 import { Moment } from 'moment';
 
 export class SetDateEvt extends AEvent<Moment> {

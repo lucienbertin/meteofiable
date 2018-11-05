@@ -1,5 +1,4 @@
-import { IGmapGeocode } from 'app/models';
-import { AAction } from 'app/core';
+import { AAction } from '@meteo/core';
 
 import { SetDateData } from './date.data';
 import { Moment } from 'moment';

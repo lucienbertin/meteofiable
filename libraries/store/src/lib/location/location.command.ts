@@ -1,5 +1,5 @@
-import { ACommand } from 'app/core';
-import { IGmapGeocode, IGmapLocation } from 'app/models';
+import { ACommand } from '@meteo/core';
+import { IGmapGeocode, IGmapLocation } from '@meteo/models';
 
 export class SetAdressCmd extends ACommand<IGmapGeocode> {
 	constructor(address: string = '') {

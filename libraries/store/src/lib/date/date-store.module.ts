@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { ActionModule } from 'app/core';
+import { ActionModule } from '@meteo/core';
 import { Moment } from 'moment';
 
 import { DateEffect } from './date.effect';

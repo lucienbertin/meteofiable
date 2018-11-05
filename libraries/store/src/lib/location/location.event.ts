@@ -1,5 +1,5 @@
-import { AEvent } from 'app/core';
-import { IGmapGeocode } from 'app/models';
+import { AEvent } from '@meteo/core';
+import { IGmapGeocode } from '@meteo/models';
 
 export class SetGeocodeEvt extends AEvent<IGmapGeocode> {
 	constructor(geocode?: IGmapGeocode) {
