@@ -1,0 +1,58 @@
+@import 'theming.overridable';
+@import 'mixins';
+
+:host {
+	display: grid;
+	grid-template:
+	"big-icon"
+	"details"
+	"timeline";
+	@include media_larger_than('md') {
+		grid-template:
+		"details big-icon"
+		"timeline timeline";
+	}
+	@include media_larger_than('lg') {
+		grid-template:
+		"details big-icon"
+		"details timeline";
+	}
+
+	mf-forecast-detail {
+		grid-area: details;
+		align-self: end;
+	}
+
+	.forcast-big-icon {
+		grid-area: big-icon;
+		text-align: center;
+		img {
+			width: 50%;
+		}
+
+		@include media_larger_than('md') {
+			text-align: right;
+			img {
+				width: 70%;
+				max-width: 300px;
+			}
+		}
+	}
+
+	mf-timeline {
+		grid-area: timeline;
+		align-self: flex-end;
+		justify-content: flex-start;
+		overflow-x: auto;
+		max-width: 100%;
+		@include media_smaller_than('md') {
+			margin: 0 auto;
+		}
+		@include media_larger_than('md') {
+			justify-content: space-between;
+		}
+		@include media_larger_than('lg') {
+			justify-content: flex-end;
+		}
+	}
+}

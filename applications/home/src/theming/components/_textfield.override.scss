@@ -1,0 +1,9 @@
+$textfield: (
+	material: (
+		border: (
+			color: #fff,
+		)
+	)
+);
+
+$theme: _set($theme, "components.textfield", $textfield);
