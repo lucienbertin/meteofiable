@@ -5,14 +5,8 @@ import {ARequest} from './request.model';
 import {Injectable, Inject} from '@angular/core';
 import {ScannedActionsSubject} from '@ngrx/store';
 import {Actions as NgrxActions} from '@ngrx/effects';
-import {Observable} from 'rxjs/Observable';
-import {filter} from 'rxjs/operators/filter';
-import {switchMap} from 'rxjs/operators/switchMap';
-import {map} from 'rxjs/operators/map';
-import {mergeMap} from 'rxjs/operators/mergeMap';
-import {catchError} from 'rxjs/operators/catchError';
-import { UnaryFunction } from 'rxjs/interfaces';
-import { Operator } from 'rxjs/Operator';
+import { Observable, Operator, UnaryFunction} from 'rxjs';
+import { filter, switchMap, map, mergeMap, catchError} from 'rxjs/operators';
 
 @Injectable()
 export class MfActions<A extends AAction = AAction> extends NgrxActions<A> {
