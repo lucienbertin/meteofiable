@@ -1,2 +1,2 @@
 export * from './store/index';
-export * from './random/index';
+export * from './gmap/index';
