@@ -1,19 +1,37 @@
 $palettes: (
 	"primary": (
-			"color": #fcc00E,
-			"text": #FFF,
+		"color": #fcc00e,
+		"text": #fff,
+		"dark": darken(#fcc00e, 7%),
+		"darker": darken(#fcc00e, 20%),
+		"light": lighten(#fcc00e, 10%),
+		"lighter": lighten(#fcc00e, 20%),
+		"lightest": lighten(#fcc00e, 45%),
+		"see-through": rgba(#fcc00e, .15)
 	),
 	"secondary": (
 		"color": #fff,
 		"text": #cecece,
+		"dark": darken(#fff, 7%),
+		"darker": darken(#fff, 20%),
+		"light": lighten(#fff, 10%),
+		"lighter": lighten(#fff, 20%),
+		"lightest": lighten(#fff, 45%),
+		"see-through": rgba(#fff, .15)
 	),
-	"grey": (
-		"color": #666,
-		"text": #cecece,
-	),
+	// "grey": (
+	// 	"color": #666,
+	// 	"text": #cecece,
+	// ),
 	"blue": (
 		"color": #82b1ff,
 		"text": #fff,
+		"dark": darken(#82b1ff, 5%),
+		"darker": darken(#82b1ff, 20%),
+		"light": lighten(#82b1ff, 10%),
+		"lighter": lighten(#82b1ff, 20%),
+		"lightest": lighten(#82b1ff, 42%),
+		"see-through": rgba(#82b1ff, .15)
 	)
 );
 
