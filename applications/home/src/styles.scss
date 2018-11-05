@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~normalize-scss/sass/normalize';
+@import '~@lucca-front/scss/src/main.overridable';
+
+@import '~@lucca-front/ng/style/main.overridable';
+@import '~@lucca-front/ng/material/style/main.overridable';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+body {
+	background: #e1f2f6;
+	background: -moz-linear-gradient(-45deg, #e1f2f6 0%, #82b1ff 25%, #00b8d4 100%);
+	background: -webkit-linear-gradient(-45deg, #e1f2f6 0%,#82b1ff 25%,#00b8d4 100%);
+	background: linear-gradient(135deg, #e1f2f6 0%,#82b1ff 25%,#00b8d4 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1f2f6', endColorstr='#00b8d4',GradientType=1 );
+	background-size: cover;
+	// color:white;
+	font-family: 'Roboto', sans-serif;
+}
