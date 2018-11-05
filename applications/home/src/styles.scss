@@ -16,3 +16,7 @@ body {
 	// color:white;
 	font-family: 'Roboto', sans-serif;
 }
+
+:root {
+	@include generateCSSVarsFromTheme($theme);
+}

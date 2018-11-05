@@ -135,7 +135,8 @@
 								"applications/home/src/theming",
 								"node_modules/@lucca-front/scss/src/overrides",
 								"node_modules/@lucca-front/ng/style/overrides",
-								"node_modules/@lucca-front/ng/style"
+								"node_modules/@lucca-front/ng/style",
+								"node_modules/@lucca-front/scss/src"
 							]
 						},
             "scripts": []

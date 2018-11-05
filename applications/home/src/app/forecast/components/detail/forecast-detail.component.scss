@@ -1,5 +1,5 @@
-@import '~@lucca-front/ng/src/style/theming.overridable';
-@import '~@lucca-front/ng/src/style/mixins';
+@import 'theming';
+@import 'mixins';
 
 :host {
 	text-align: center;

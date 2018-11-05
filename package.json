@@ -63,8 +63,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "ng serve home",
+    "build": "ng build home --prod",
+    "prebuild": "npm run build:libs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
