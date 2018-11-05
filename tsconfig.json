@@ -19,7 +19,11 @@
     "paths": {
       "@meteo/core": [
         "dist/core"
-      ]
+      ],
+      "@meteo/models": [
+        "dist/models"
+      ],
+
     }
   }
 }
