@@ -64,7 +64,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve home",
-    "build": "ng build home --prod",
+    "build": "ng build home",
     "prebuild": "npm run build:libs",
     "test": "ng test",
     "lint": "ng lint",

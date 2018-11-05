@@ -29,7 +29,5 @@ import {
 		LocationStoreModule,
 		DateStoreModule,
 	],
-	providers: [
-	],
 })
 export class ForecastModule { }
