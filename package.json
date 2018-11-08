@@ -19,6 +19,7 @@
     "@angular/material-moment-adapter": "^7.0.0",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
+    "@angular/platform-server": "^7.0.0",
     "@angular/router": "^7.0.0",
     "@lucca-front/icons": "^2.0.0",
     "@lucca-front/ng": "^2.0.0",
