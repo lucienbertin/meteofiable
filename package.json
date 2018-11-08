@@ -30,6 +30,7 @@
     "@nguniversal/express-engine": "^7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "core-js": "^2.5.7",
+    "dotenv": "^6.1.0",
     "moment": "^2.22.0",
     "normalize-scss": "^7.0.1",
     "rxjs": "^6.3.0",
@@ -77,6 +78,7 @@
     "e2e": "ng e2e",
     "build:libs": "ng build models && ng build core && ng build store",
     "build:apps": "ng build home && ng run home:server",
-    "build:server": "webpack --config webpack.server.config.js --progress --colors"
+    "build:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve": "node ./dist/server.js"
   }
 }

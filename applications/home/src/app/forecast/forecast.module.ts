@@ -9,6 +9,7 @@ import {
 	TimelineComponent,
 	TimelineForecastComponent,
 } from './components';
+import { ForecastMetaModule } from './components/meta/forecast-meta.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {
 		CommonModule,
 		LocationStoreModule,
 		DateStoreModule,
+		ForecastMetaModule,
 	],
 })
 export class ForecastModule { }
