@@ -130,6 +130,7 @@
             "styles": [
               "applications/home/src/styles.scss"
             ],
+            "extractCss": true,
             "stylePreprocessorOptions": {
               "includePaths": [
                 "applications/home/src/theming",
@@ -217,7 +218,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/home-server",
+            "outputPath": "dist/server",
             "main": "applications/home/src/main.server.ts",
             "tsConfig": "applications/home/tsconfig.server.json",
             "stylePreprocessorOptions": {
