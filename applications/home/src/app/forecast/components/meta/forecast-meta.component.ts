@@ -17,7 +17,8 @@ export class ForecastMetaComponent {
 	) {}
 	updateMeta(forecast: IForecast) {
 		if (!!forecast) {
-			this.meta.updateTag({ property: 'og:description', content: `${forecast.city} ${forecast.date.format('ll')}: ${forecast.temperature}ºC grand soleil` });
+			this.meta.updateTag({ property: 'og:title', content: `${forecast.city} ${forecast.date.format('ll')}` });
+			this.meta.updateTag({ property: 'og:description', content: `${forecast.temperature}ºC grand soleil` });
 		}
 	}
 }
