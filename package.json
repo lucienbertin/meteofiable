@@ -30,6 +30,7 @@
     "@nguniversal/express-engine": "^7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "core-js": "^2.5.7",
+    "dotenv": "^6.1.0",
     "moment": "^2.22.0",
     "normalize-scss": "^7.0.1",
     "rxjs": "^6.3.0",

@@ -1,7 +1,7 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-
+require('dotenv').load();
 import { enableProdMode } from '@angular/core';
 
 import * as express from 'express';
@@ -14,7 +14,9 @@ enableProdMode();
 const app = express();
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'dist');
+const HOST = process.env.HOST || 'localhost';
+const DIST = process.env.DIST || 'dist';
+const DIST_FOLDER = join(process.cwd(), DIST);
 const SPA_FOLDER_NAME = 'home';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -49,6 +51,6 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
 	console.log(`Node server listening on http://localhost:${PORT}`);
 });
