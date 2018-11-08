@@ -130,15 +130,16 @@
             "styles": [
               "applications/home/src/styles.scss"
             ],
+            "extractCss": true,
             "stylePreprocessorOptions": {
-							"includePaths": [
-								"applications/home/src/theming",
-								"node_modules/@lucca-front/scss/src/overrides",
-								"node_modules/@lucca-front/ng/style/overrides",
-								"node_modules/@lucca-front/ng/style",
-								"node_modules/@lucca-front/scss/src"
-							]
-						},
+              "includePaths": [
+                "applications/home/src/theming",
+                "node_modules/@lucca-front/scss/src/overrides",
+                "node_modules/@lucca-front/ng/style/overrides",
+                "node_modules/@lucca-front/ng/style",
+                "node_modules/@lucca-front/scss/src"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -212,6 +213,33 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "applications/home/src/main.server.ts",
+            "tsConfig": "applications/home/tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "applications/home/src/theming",
+                "node_modules/@lucca-front/scss/src/overrides",
+                "node_modules/@lucca-front/ng/style/overrides",
+                "node_modules/@lucca-front/ng/style",
+                "node_modules/@lucca-front/scss/src"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "applications/home/src/environments/environment.ts",
+                  "with": "applications/home/src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }

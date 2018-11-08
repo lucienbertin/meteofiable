@@ -19,6 +19,7 @@
     "@angular/material-moment-adapter": "^7.0.0",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
+    "@angular/platform-server": "^7.0.0",
     "@angular/router": "^7.0.0",
     "@lucca-front/icons": "^2.0.0",
     "@lucca-front/ng": "^2.0.0",
@@ -26,13 +27,15 @@
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
     "@ngrx/store-devtools": "^6.1.0",
+    "@nguniversal/express-engine": "^7.0.2",
+    "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "core-js": "^2.5.7",
     "moment": "^2.22.0",
     "normalize-scss": "^7.0.1",
     "rxjs": "^6.3.0",
+    "typescript": "^3.0.0",
     "underscore": "^1.9.1",
-    "zone.js": "^0.8.19",
-    "typescript": "^3.0.0"
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
@@ -55,20 +58,25 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^4.2.0",
     "protractor": "^5.4.1",
+    "ts-loader": "^5.3.0",
     "ts-node": "~7.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.1"
+    "typescript": "~3.1.1",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "ng": "ng",
     "start": "ng serve home",
-    "build": "ng build home",
+    "build": "npm run build:apps",
     "prebuild": "npm run build:libs",
+    "postbuild": "npm run build:server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:libs": "ng build models && ng build core && ng build store"
+    "build:libs": "ng build models && ng build core && ng build store",
+    "build:apps": "ng build home && ng run home:server",
+    "build:server": "webpack --config webpack.server.config.js --progress --colors"
   }
 }
