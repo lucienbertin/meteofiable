@@ -78,6 +78,7 @@
     "e2e": "ng e2e",
     "build:libs": "ng build models && ng build core && ng build store",
     "build:apps": "ng build home && ng run home:server",
-    "build:server": "webpack --config webpack.server.config.js --progress --colors"
+    "build:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve": "node ./dist/server.js"
   }
 }
