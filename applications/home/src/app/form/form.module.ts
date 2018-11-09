@@ -3,7 +3,6 @@ import { MatAutocompleteModule, MatOptionModule, MatDatepickerModule } from '@an
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GmapModule } from '@meteo/core';
 import { LocationStoreModule, DateStoreModule } from '@meteo/store';
 
