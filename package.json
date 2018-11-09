@@ -70,9 +70,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve home",
-    "build": "npm run build:apps",
     "prebuild": "npm run build:libs",
+    "build": "npm run build:apps",
     "postbuild": "npm run build:server",
+    "prerelease": "npm run build:apps",
+    "release": "ng build home --prod && ng run home:server",
+    "postrelease": "npm run build:server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
