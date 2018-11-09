@@ -6,7 +6,6 @@ import { LocationStoreModule, DateStoreModule } from '@meteo/store';
 import {
 	RedirectComponent,
 } from './components';
-import { redirectRoute } from './router.route';
 import { RouterTrigger } from './router.trigger';
 import { EffectsModule } from '@ngrx/effects';
 
