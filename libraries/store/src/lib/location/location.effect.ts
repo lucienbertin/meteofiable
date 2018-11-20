@@ -10,7 +10,7 @@ import { ARequest, ofType, follow, call, correlated, ofAny } from '@lucca-front-
 
 class AddressToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 	static TYPE = '[req] gmap - address to geocode';
-	call(gmapService: GmapService) {
+	call([gmapService]) {
 		return gmapService.searchAddresses(this.payload).pipe(
 			map(geocodes => geocodes[0]),
 		);
@@ -21,7 +21,7 @@ class AddressToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 }
 class IdToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 	static TYPE = '[req] gmap - place id to geocode';
-	call(gmapService: GmapService) {
+	call([gmapService]) {
 		return gmapService.getPlace(this.payload);
 	}
 	// constructor() {

@@ -23,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MfRouterModule,
 		StoreModule.forRoot({}),
 		EffectsModule.forRoot([]),
-		StoreDevtoolsModule.instrument({}),
+		StoreDevtoolsModule.instrument({
+			name: 'meteo-fiable',
+		}),
 		LocaleModule,
 		BrowserAnimationsModule,
 	],

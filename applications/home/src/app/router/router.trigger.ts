@@ -14,7 +14,7 @@ class UpdateUrlCmd extends ACommand<{ location: IGmapGeocode, date: Moment, }> {
 }
 class UpdateUrlRequest extends ARequest<{ location: IGmapGeocode, date: Moment, }> {
 	static TYPE = '[req] update url';
-	call(router: Router, route: ActivatedRoute) {
+	call([router, route]: [Router, ActivatedRoute]) {
 		const params = {
 			date: this.payload.date.format('YYYY-MM-DD'),
 			place: this.payload.location.place_id,

@@ -3,7 +3,7 @@ import { AAction } from '@meteo/core';
 
 import { SetGeocodeData } from './location.data';
 
-const setGeocodeType = new SetGeocodeData().type;
+const setGeocodeType = SetGeocodeData.TYPE;
 export function locationReducer(geocode: IGmapGeocode, action: AAction) {
 	switch (action.type) {
 		case setGeocodeType:
