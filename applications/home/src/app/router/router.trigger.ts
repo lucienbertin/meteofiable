@@ -1,32 +1,39 @@
 import { Injectable } from '@angular/core';
-import { merge } from 'rxjs';
+import { merge, of } from 'rxjs';
 import { debounceTime, withLatestFrom, tap, map } from 'rxjs/operators';
-import { MfActions, AAction, AEvent } from '@meteo/core';
 import { IGmapGeocode } from '@meteo/models';
 import { Moment } from 'moment';
 import { SetDateEvt, SetGeocodeEvt, ILocationStore, IDateStore } from '@meteo/store';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Effect } from '@ngrx/effects';
+import { Effect, Actions } from '@ngrx/effects';
+import { ofType, ofSuccess, AAction, AEvent, ACommand, follow, ARequest, call, correlated, ofAny } from '@lucca-front-sdk/ng/ngrx';
 
-class UpdateUrlAction extends AAction<void> {
-	constructor(location?: IGmapGeocode, date?: Moment) {
-		super(
-			'[norm] update url',
-			undefined,
-			{ location: location, date: date }
-		);
+class UpdateUrlCmd extends ACommand<{ location: IGmapGeocode, date: Moment, }> {
+	static TYPE = '[cmd] update url';
+}
+class UpdateUrlRequest extends ARequest<{ location: IGmapGeocode, date: Moment, }> {
+	static TYPE = '[req] update url';
+	call(router: Router, route: ActivatedRoute) {
+		const params = {
+			date: this.payload.date.format('YYYY-MM-DD'),
+			place: this.payload.location.place_id,
+		};
+		router.navigate([], { queryParams: params, replaceUrl: true, relativeTo: route });
+		return of(this.payload);
 	}
 }
-class UpdateUrlEvt extends AEvent<void> {
-	constructor() {
-		super('[evt] update url');
-	}
+class UpdateUrlEvt extends AEvent<{ location: IGmapGeocode, date: Moment, }> {
+	static TYPE = '[evt] update url';
 }
 @Injectable()
 export class RouterTrigger {
-	locUpdated = this.actions$.of(new SetGeocodeEvt());
-	dateUpdated = this.actions$.of(new SetDateEvt());
+	locUpdated = this.actions$.pipe(
+		ofSuccess(SetGeocodeEvt)
+	);
+	dateUpdated = this.actions$.pipe(
+		ofSuccess(SetDateEvt),
+	);
 
 	updateUrlTrigger = merge(
 		this.locUpdated,
@@ -36,23 +43,24 @@ export class RouterTrigger {
 		withLatestFrom(this.store$.select(s => s.location), this.store$.select(s => s.date)),
 	);
 
-	@Effect() updateUrlHandler = this.updateUrlTrigger
-		.pipe(map(([action, location, date]) => new UpdateUrlAction(location, date)));
+	@Effect() trigger = this.updateUrlTrigger
+		.pipe(map(([action, location, date]) => new UpdateUrlCmd({location: location, date: date})));
 
-	@Effect() updateUrlEvt = this.actions$.of(new UpdateUrlAction())
-		.pipe(
-			tap(a => {
-				const params = {
-					date: a.payload.date.format('YYYY-MM-DD'),
-					place: a.payload.location.place_id,
-				};
-				this.router.navigate([], { queryParams: params, replaceUrl: true, relativeTo: this.route });
-			}),
-			map(a => new UpdateUrlEvt()),
+	@Effect() handler = this.actions$.pipe(
+		ofType(UpdateUrlCmd),
+		follow(UpdateUrlRequest),
+	);
+	@Effect() caller = this.handler.pipe(
+		call(UpdateUrlRequest, this.router, this.route),
+		follow(UpdateUrlEvt),
+	);
+	@Effect() complete = this.actions$.pipe(
+		correlated(UpdateUrlCmd),
+		ofAny(UpdateUrlEvt),
+		follow(UpdateUrlCmd),
 		);
-
 	constructor(
-		private actions$: MfActions,
+		private actions$: Actions,
 		private router: Router,
 		private route: ActivatedRoute,
 		private store$: Store<ILocationStore & IDateStore>,
