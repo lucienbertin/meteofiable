@@ -11,6 +11,7 @@ import { Form, NgForm } from '@angular/forms';
 import { IGmapGeocode, IForecast, Forecast } from '@meteo/models';
 import { GmapService } from '@meteo/core';
 import { SetAdressCmd, SetDateCmd, ILocationStore, IDateStore } from '@meteo/store';
+import { Commands } from '@lucca-front-sdk/ng/ngrx';
 
 @Component({
 	selector: 'mf-form',
@@ -32,6 +33,7 @@ export class MfFormComponent implements OnInit, OnDestroy {
 	constructor(
 		private gmapService: GmapService,
 		private store$: Store<ILocationStore & IDateStore>,
+		private commands$: Commands,
 	) {}
 
 	ngOnInit() {
@@ -45,8 +47,14 @@ export class MfFormComponent implements OnInit, OnDestroy {
 	}
 	submit() {
 		if (this.form.valid) {
-			this.store$.dispatch(new SetAdressCmd(this.model.address));
-			this.store$.dispatch(new SetDateCmd(this.model.date));
+			this.commands$.dispatch(new SetAdressCmd(this.model.address))
+			.subscribe(c => {
+				console.log(`${c.correlationId} - ${c.type}`);
+			});
+			this.commands$.dispatch(new SetDateCmd(this.model.date))
+			.subscribe(c => {
+				console.log(`${c.correlationId} - ${c.type}`);
+			});
 		}
 	}
 	searchAddresses(clue = '') {

@@ -6,7 +6,7 @@ import { locationState } from '../location/index';
 export { IForecastState } from './forecast.reducer';
 
 const selectors = forecastAdapter.getSelectors();
-export const forecastState = createFeatureSelector<IForecastState>('forecasts');
+const forecastState = createFeatureSelector<IForecastState>('forecasts');
 export const selectForecasts = createSelector(
 	forecastState,
 	selectors.selectAll,
