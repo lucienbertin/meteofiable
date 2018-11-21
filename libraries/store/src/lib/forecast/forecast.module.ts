@@ -9,8 +9,6 @@ import { DateStoreModule } from '../date/index';
 import { LocationStoreModule } from '../location/index';
 import { forecastReducer } from './forecast.reducer';
 import { ForecastDataEffect } from './forecast.data';
-// import { DateDataEffect } from './forecast.data';
-// import { dateReducer } from './forecast.reducer';
 
 @NgModule({
 	imports: [
