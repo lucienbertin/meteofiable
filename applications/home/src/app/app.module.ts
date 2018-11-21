@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { MfRouterModule, redirectRoute } from './router';
 import { LocaleModule } from '@meteo/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConductorModule } from '@lucca-front-sdk/ng/ngrx';
 
 @NgModule({
 	declarations: [
@@ -21,11 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		ForecastModule,
 		RouterModule.forRoot(redirectRoute),
 		MfRouterModule,
-		StoreModule.forRoot({}),
-		EffectsModule.forRoot([]),
 		StoreDevtoolsModule.instrument({
 			name: 'meteo-fiable',
 		}),
+		ConductorModule.forRoot(),
 		LocaleModule,
 		BrowserAnimationsModule,
 	],

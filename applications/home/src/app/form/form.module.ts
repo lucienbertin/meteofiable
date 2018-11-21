@@ -9,7 +9,7 @@ import { LocationStoreModule, DateStoreModule } from '@meteo/store';
 import {
 	MfFormComponent,
 } from './components';
-import { CommandsModule } from '@lucca-front-sdk/ng/ngrx';
+import { ConductorModule } from '@lucca-front-sdk/ng/ngrx';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { CommandsModule } from '@lucca-front-sdk/ng/ngrx';
 		LocationStoreModule,
 		DateStoreModule,
 		GmapModule,
-		CommandsModule,
+		ConductorModule,
 	],
 	providers: [
 	],
