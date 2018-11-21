@@ -7,14 +7,17 @@ import { ForecastTrigger } from './forecast.trigger';
 import { ForecastFactory } from './forecast.factory';
 import { DateStoreModule } from '../date/index';
 import { LocationStoreModule } from '../location/index';
+import { forecastReducer } from './forecast.reducer';
+import { ForecastDataEffect } from './forecast.data';
 // import { DateDataEffect } from './forecast.data';
 // import { dateReducer } from './forecast.reducer';
 
 @NgModule({
 	imports: [
-		// StoreModule.forFeature('date', dateReducer),
+		StoreModule.forFeature('forecasts', forecastReducer),
 		EffectsModule.forFeature([ForecastEffect]),
 		EffectsModule.forFeature([ForecastTrigger]),
+		EffectsModule.forFeature([ForecastDataEffect]),
 		DateStoreModule,
 		LocationStoreModule,
 	],
