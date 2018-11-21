@@ -26,6 +26,7 @@
     "@lucca-front/scss": "^2.0.0",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
+    "@ngrx/entity": "^6.1.0",
     "@ngrx/store-devtools": "^6.1.0",
     "@nguniversal/express-engine": "^7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
