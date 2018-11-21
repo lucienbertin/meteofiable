@@ -4,6 +4,7 @@ import { Moment } from 'moment';
 import { Randomizer } from './randomizer';
 
 export interface IForecast {
+	id: string;
 	geocode: IGmapGeocode;
 	date: Moment;
 	weather?: Weather;
@@ -14,6 +15,7 @@ export interface IForecast {
 	country: string;
 }
 export class Forecast implements IForecast {
+	id: string;
 	city: string;
 	country: string;
 	constructor(
@@ -24,6 +26,7 @@ export class Forecast implements IForecast {
 		public wind = 10,
 		public humidity = 35,
 	) {
+		this.id = `${geocode.place_id} - ${date.toISOString()}`;
 		const cityComponent = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'locality'));
 		this.city = !!cityComponent ? cityComponent.long_name : '';
 		const countryComponent = this.geocode.address_components.find(ac => !!ac.types.find(t => t === 'country'));
