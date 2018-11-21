@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LocationStoreModule, DateStoreModule, ForecastStoreModule } from '@meteo/store';
+import { ForecastStoreModule } from '@meteo/store';
 
 import {
 	ForecastComponent,
@@ -27,8 +27,6 @@ import { ForecastMetaModule } from './components/meta/forecast-meta.module';
 	],
 	imports: [
 		CommonModule,
-		// LocationStoreModule,
-		// DateStoreModule,
 		ForecastStoreModule,
 		ForecastMetaModule,
 	],
