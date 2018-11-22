@@ -14,7 +14,7 @@ import { SetForecastsCmd } from './forecast.command';
 
 class CreateForecastsRequest extends ARequest<{location: IGmapGeocode, date: Moment}, IForecast[]> {
 	static TYPE = '[req] date & loc -> forcasts';
-	call([factory]: [ForecastFactory]) {
+	call(factory: ForecastFactory) {
 		return of(factory.forge(this.payload.location, this.payload.date));
 	}
 }
