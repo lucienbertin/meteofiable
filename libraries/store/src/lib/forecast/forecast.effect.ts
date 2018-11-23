@@ -17,7 +17,7 @@ export class ForecastEffect {
 	@Effect() handler = this.actions$.pipe(
 		ofType(SetForecastsCmd),
 		follow(ForecastsRequest),
-		call(ForecastsRequest),
+		call(),
 		follow(SetForecastsEvt),
 	);
 	@Effect() complete = this.handler.pipe(

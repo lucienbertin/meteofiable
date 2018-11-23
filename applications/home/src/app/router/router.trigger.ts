@@ -51,7 +51,7 @@ export class RouterTrigger {
 		follow(UpdateUrlRequest),
 	);
 	@Effect() caller = this.handler.pipe(
-		call(UpdateUrlRequest, this.router, this.route),
+		call(this.router, this.route),
 		follow(UpdateUrlEvt),
 	);
 	@Effect() complete = this.actions$.pipe(

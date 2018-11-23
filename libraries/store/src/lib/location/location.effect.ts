@@ -28,8 +28,8 @@ export class LocationEffect {
 		ofType(SetAdressCmd),
 		follow(AddressToGeocodeRequest),
 	);
-	@Effect() addressCaller = this.actions$.pipe(
-		call(AddressToGeocodeRequest, this.gmapService),
+	@Effect() addressCaller = this.addressHandler.pipe(
+		call(this.gmapService),
 		follow(SetGeocodeEvt),
 	);
 	@Effect() addressComplete = this.actions$.pipe(
@@ -42,8 +42,8 @@ export class LocationEffect {
 		ofType(SetPlaceIdCmd),
 		follow(IdToGeocodeRequest),
 	);
-	@Effect() placeCaller = this.actions$.pipe(
-		call(IdToGeocodeRequest, this.gmapService),
+	@Effect() placeCaller = this.placeHandler.pipe(
+		call(this.gmapService),
 		follow(SetGeocodeEvt),
 	);
 	@Effect() placeComplete = this.actions$.pipe(
