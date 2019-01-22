@@ -1,0 +1,10 @@
+{
+	"$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+	"schematics": {
+		"index": {
+			"description": "Generate an index.ts file",
+			"factory": "./index",
+			"schema": "./index/schema.json"
+		},
+	}
+}
