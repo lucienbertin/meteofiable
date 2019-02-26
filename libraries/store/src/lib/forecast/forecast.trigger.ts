@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
-import { merge, of } from 'rxjs';
+import { merge, of, Observable } from 'rxjs';
 import { debounceTime, withLatestFrom, tap, map } from 'rxjs/operators';
 import { IGmapGeocode, IForecast, Weather } from '@meteo/models';
 import { Moment } from 'moment';
 import { SetDateEvt, IDateStore } from '../date/index';
 import { SetGeocodeEvt, ILocationStore } from '../location/index';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Effect, Actions } from '@ngrx/effects';
-import { ofType, ofSuccess, AAction, AEvent, ACommand, follow, ARequest, call, correlated, ofAny, trigger } from '@lucca-front-sdk/ng/ngrx';
+import { ofSuccess, AAction, trigger, callAndFollow } from '@lucca-front-sdk/ng/ngrx';
 import { ForecastFactory } from './forecast.factory';
 import { SetForecastsCmd } from './forecast.command';
 
-class CreateForecastsRequest extends ARequest<{location: IGmapGeocode, date: Moment}, IForecast[]> {
-	static TYPE = '[req] date & loc -> forcasts';
-	call(factory: ForecastFactory) {
-		return of(factory.forge(this.payload.location, this.payload.date));
-	}
+class CreateForecastsTrigger extends AAction<IForecast[]> {
+	static TYPE = '[trig] date & loc -> forcasts';
 }
 
 @Injectable()
@@ -37,9 +33,8 @@ export class ForecastTrigger {
 	);
 
 	@Effect() trigger = this.updateForecastsTrigger.pipe(
-		map(([action, location, date]) => new CreateForecastsRequest({location: location, date: date})),
-		call(this.factory),
-		trigger(SetForecastsCmd, f => f),
+		map(([action, location, date]) => new CreateForecastsTrigger(this.factory.forge(location, date))),
+		trigger(SetForecastsCmd, (p, f) => f),
 	);
 
 	constructor(

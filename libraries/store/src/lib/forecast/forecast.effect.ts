@@ -3,25 +3,23 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import { SetForecastsCmd } from './forecast.command';
 import { SetForecastsEvt } from './forecast.event';
-import { ofType, follow, ARequest, call } from '@lucca-front-sdk/ng/ngrx';
+import { ofPending, complete, callAndFollow } from '@lucca-front-sdk/ng/ngrx';
 import { of } from 'rxjs';
 import { IForecast } from '@meteo/models';
 
-class ForecastsRequest extends ARequest<IForecast[]> {
-	static TYPE = '[req] set forecasts';
-	call() { return of(this.payload); }
-}
+// class ForecastsRequest extends ARequest<IForecast[]> {
+// 	static TYPE = '[req] set forecasts';
+// 	call() { return of(this.payload); }
+// }
 
 @Injectable()
 export class ForecastEffect {
 	@Effect() handler = this.actions$.pipe(
-		ofType(SetForecastsCmd),
-		follow(ForecastsRequest),
-		call(),
-		follow(SetForecastsEvt),
+		ofPending(SetForecastsCmd),
+		callAndFollow(p => of(p), SetForecastsEvt),
 	);
 	@Effect() complete = this.handler.pipe(
-		follow(SetForecastsCmd),
+		complete(SetForecastsCmd),
 	);
 
 	constructor(

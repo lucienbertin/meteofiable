@@ -3,25 +3,17 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import { SetDateCmd } from './date.command';
 import { SetDateEvt } from './date.event';
-import { ofType, follow, ofAny, correlated, ARequest, call } from '@lucca-front-sdk/ng/ngrx';
-import { Moment } from 'moment';
+import { ofPending, callAndFollow, complete } from '@lucca-front-sdk/ng/ngrx';
 import { of } from 'rxjs';
-
-class DateRequest extends ARequest<Moment> {
-	static TYPE = '[req] set date';
-	call() { return of(this.payload); }
-}
 
 @Injectable()
 export class DateEffect {
 	@Effect() handler = this.actions$.pipe(
-		ofType(SetDateCmd),
-		follow(DateRequest),
-		call(),
-		follow(SetDateEvt),
+		ofPending(SetDateCmd),
+		callAndFollow(p => of(p), SetDateEvt),
 	);
 	@Effect() complete = this.handler.pipe(
-		follow(SetDateCmd),
+		complete(SetDateCmd),
 	);
 
 	constructor(
