@@ -7,22 +7,12 @@ import { SetDateEvt, SetGeocodeEvt, ILocationStore, IDateStore } from '@meteo/st
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Effect, Actions } from '@ngrx/effects';
-import { ofType, ofSuccess, AAction, AEvent, ACommand, follow, ARequest, call, correlated, ofAny } from '@lucca-front-sdk/ng/ngrx';
+import { ofPending, ofSuccess, AEvent, ACommand, callAndFollow, correlated, ofComplete, complete, IAction } from '@lucca-front-sdk/ng/ngrx';
 
 class UpdateUrlCmd extends ACommand<{ location: IGmapGeocode, date: Moment, }> {
 	static TYPE = '[cmd] update url';
 }
-class UpdateUrlRequest extends ARequest<{ location: IGmapGeocode, date: Moment, }> {
-	static TYPE = '[req] update url';
-	call(router: Router, route: ActivatedRoute) {
-		const params = {
-			date: this.payload.date.format('YYYY-MM-DD'),
-			place: this.payload.location.place_id,
-		};
-		router.navigate([], { queryParams: params, replaceUrl: true, relativeTo: route });
-		return of(this.payload);
-	}
-}
+
 class UpdateUrlEvt extends AEvent<{ location: IGmapGeocode, date: Moment, }> {
 	static TYPE = '[evt] update url';
 }
@@ -47,20 +37,27 @@ export class RouterTrigger {
 		.pipe(map(([action, location, date]) => new UpdateUrlCmd({location: location, date: date})));
 
 	@Effect() handler = this.actions$.pipe(
-		ofType(UpdateUrlCmd),
-		follow(UpdateUrlRequest),
+		ofPending(UpdateUrlCmd),
+		callAndFollow(p => {
+			const params = {
+				date: p.date.format('YYYY-MM-DD'),
+				place: p.location.place_id,
+			};
+			this.router.navigate([], { queryParams: params, replaceUrl: true, relativeTo: this.route });
+			return of(p);
+		}, UpdateUrlEvt),
 	);
-	@Effect() caller = this.handler.pipe(
-		call(this.router, this.route),
-		follow(UpdateUrlEvt),
-	);
+	// @Effect() caller = this.handler.pipe(
+	// 	call(this.router, this.route),
+	// 	follow(UpdateUrlEvt),
+	// );
 	@Effect() complete = this.actions$.pipe(
 		correlated(UpdateUrlCmd),
-		ofAny(UpdateUrlEvt),
-		follow(UpdateUrlCmd),
+		ofComplete(UpdateUrlEvt),
+		complete(UpdateUrlCmd),
 		);
 	constructor(
-		private actions$: Actions,
+		private actions$: Actions<IAction>,
 		private router: Router,
 		private route: ActivatedRoute,
 		private store$: Store<ILocationStore & IDateStore>,

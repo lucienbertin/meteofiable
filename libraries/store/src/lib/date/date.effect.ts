@@ -3,7 +3,7 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import { SetDateCmd } from './date.command';
 import { SetDateEvt } from './date.event';
-import { ofPending, callAndFollow, complete } from '@lucca-front-sdk/ng/ngrx';
+import { ofPending, callAndFollow, complete, IAction } from '@lucca-front-sdk/ng/ngrx';
 import { of } from 'rxjs';
 
 @Injectable()
@@ -17,6 +17,6 @@ export class DateEffect {
 	);
 
 	constructor(
-		private actions$: Actions,
+		private actions$: Actions<IAction>,
 	) { }
 }

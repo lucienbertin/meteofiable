@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
-import { AAction, ofSuccess, follow } from '@lucca-front-sdk/ng/ngrx';
+import { AAction, ofSuccess, follow, IAction } from '@lucca-front-sdk/ng/ngrx';
 
 import { SetGeocodeEvt } from './location.event';
 import { IGmapGeocode } from '@meteo/models';
@@ -16,6 +16,6 @@ export class LocationDataEffect {
 		follow(SetGeocodeData),
 	);
 	constructor(
-		private actions$: Actions,
+		private actions$: Actions<IAction>,
 	) { }
 }

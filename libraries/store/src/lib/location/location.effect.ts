@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { SetAdressCmd, SetPlaceIdCmd } from './location.command';
 import { SetGeocodeEvt } from './location.event';
-import { ofComplete, ofPending, callAndFollow, correlated, complete } from '@lucca-front-sdk/ng/ngrx';
+import { ofComplete, ofPending, callAndFollow, correlated, complete, IAction } from '@lucca-front-sdk/ng/ngrx';
 
 @Injectable()
 export class LocationEffect {
@@ -17,7 +17,7 @@ export class LocationEffect {
 	@Effect() addressComplete = this.actions$.pipe(
 		correlated(SetAdressCmd),
 		ofComplete(SetGeocodeEvt),
-		complete(SetAdressCmd),
+		complete(SetAdressCmd as any),
 	);
 	// ----------------------------------
 	@Effect() placeHandler = this.actions$.pipe(
@@ -27,11 +27,11 @@ export class LocationEffect {
 	@Effect() placeComplete = this.actions$.pipe(
 		correlated(SetPlaceIdCmd),
 		ofComplete(SetGeocodeEvt),
-		complete(SetPlaceIdCmd),
+		complete(SetPlaceIdCmd as any),
 	);
 
 	constructor(
-		private actions$: Actions,
+		private actions$: Actions<IAction>,
 		private gmapService: GmapService,
 	) { }
 }
