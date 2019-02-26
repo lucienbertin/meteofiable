@@ -10,7 +10,7 @@ import { ARequest, ofType, follow, call, correlated, ofAny } from '@lucca-front-
 
 class AddressToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 	static TYPE = '[req] gmap - address to geocode';
-	call([gmapService]) {
+	call(gmapService: GmapService) {
 		return gmapService.searchAddresses(this.payload).pipe(
 			map(geocodes => geocodes[0]),
 		);
@@ -18,7 +18,7 @@ class AddressToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 }
 class IdToGeocodeRequest extends ARequest<string, IGmapGeocode> {
 	static TYPE = '[req] gmap - place id to geocode';
-	call([gmapService]) {
+	call(gmapService: GmapService) {
 		return gmapService.getPlace(this.payload);
 	}
 }
@@ -28,8 +28,8 @@ export class LocationEffect {
 		ofType(SetAdressCmd),
 		follow(AddressToGeocodeRequest),
 	);
-	@Effect() addressCaller = this.actions$.pipe(
-		call(AddressToGeocodeRequest, this.gmapService),
+	@Effect() addressCaller = this.addressHandler.pipe(
+		call(this.gmapService),
 		follow(SetGeocodeEvt),
 	);
 	@Effect() addressComplete = this.actions$.pipe(
@@ -42,8 +42,8 @@ export class LocationEffect {
 		ofType(SetPlaceIdCmd),
 		follow(IdToGeocodeRequest),
 	);
-	@Effect() placeCaller = this.actions$.pipe(
-		call(IdToGeocodeRequest, this.gmapService),
+	@Effect() placeCaller = this.placeHandler.pipe(
+		call(this.gmapService),
 		follow(SetGeocodeEvt),
 	);
 	@Effect() placeComplete = this.actions$.pipe(

@@ -24,7 +24,8 @@
         "dist/models"
       ],
       "@meteo/store": [
-        "dist/store"
+        // "dist/store"
+        "libraries/store/src/index"
       ]
     }
   }

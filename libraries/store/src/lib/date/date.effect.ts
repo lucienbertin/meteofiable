@@ -17,7 +17,7 @@ export class DateEffect {
 	@Effect() handler = this.actions$.pipe(
 		ofType(SetDateCmd),
 		follow(DateRequest),
-		call(DateRequest),
+		call(),
 		follow(SetDateEvt),
 	);
 	@Effect() complete = this.handler.pipe(

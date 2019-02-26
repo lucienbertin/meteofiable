@@ -14,7 +14,7 @@ class UpdateUrlCmd extends ACommand<{ location: IGmapGeocode, date: Moment, }> {
 }
 class UpdateUrlRequest extends ARequest<{ location: IGmapGeocode, date: Moment, }> {
 	static TYPE = '[req] update url';
-	call([router, route]: [Router, ActivatedRoute]) {
+	call(router: Router, route: ActivatedRoute) {
 		const params = {
 			date: this.payload.date.format('YYYY-MM-DD'),
 			place: this.payload.location.place_id,
@@ -51,7 +51,7 @@ export class RouterTrigger {
 		follow(UpdateUrlRequest),
 	);
 	@Effect() caller = this.handler.pipe(
-		call(UpdateUrlRequest, this.router, this.route),
+		call(this.router, this.route),
 		follow(UpdateUrlEvt),
 	);
 	@Effect() complete = this.actions$.pipe(
