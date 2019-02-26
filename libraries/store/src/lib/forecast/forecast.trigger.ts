@@ -34,7 +34,7 @@ export class ForecastTrigger {
 
 	@Effect() trigger = this.updateForecastsTrigger.pipe(
 		map(([action, location, date]) => new CreateForecastsTrigger(this.factory.forge(location, date))),
-		trigger(SetForecastsCmd, (p, f) => f),
+		trigger(SetForecastsCmd, (p, f) => p),
 	);
 
 	constructor(

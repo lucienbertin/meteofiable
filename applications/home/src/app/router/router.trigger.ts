@@ -31,6 +31,7 @@ export class RouterTrigger {
 	).pipe(
 		debounceTime(500),
 		withLatestFrom(this.store$.select(s => s.location), this.store$.select(s => s.date)),
+		tap(x => console.log(x))
 	);
 
 	@Effect() trigger = this.updateUrlTrigger
@@ -47,10 +48,7 @@ export class RouterTrigger {
 			return of(p);
 		}, UpdateUrlEvt),
 	);
-	// @Effect() caller = this.handler.pipe(
-	// 	call(this.router, this.route),
-	// 	follow(UpdateUrlEvt),
-	// );
+
 	@Effect() complete = this.actions$.pipe(
 		correlated(UpdateUrlCmd),
 		ofComplete(UpdateUrlEvt),

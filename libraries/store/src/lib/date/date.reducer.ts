@@ -1,9 +1,9 @@
 
 import { SetDateData } from './date.data';
 import { Moment } from 'moment';
-import { IAction } from '@lucca-front-sdk/ng/ngrx';
+import { IAction, ActionStatus, transformType } from '@lucca-front-sdk/ng/ngrx';
 
-const setDateType = SetDateData.TYPE;
+const setDateType = transformType(SetDateData.TYPE, ActionStatus.success);
 export function dateReducer(date: Moment, action: IAction) {
 	switch (action.type) {
 		case setDateType:
