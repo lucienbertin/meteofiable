@@ -24,7 +24,7 @@
     "@lucca-front/icons": "^2.3.0",
     "@lucca-front/ng": "^2.3.0",
     "@lucca-front/scss": "^2.3.0",
-    "@lucca-front-sdk/ng": "2.0.0-alpha.0",
+    "@lucca-front-sdk/ng": "2.0.0-beta.0",
     "@lucca/schematics": "0.0.3",
     "@lucca/tslint": "0.0.3",
     "@ngrx/effects": "^7.2.0",
