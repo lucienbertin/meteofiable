@@ -1,11 +1,6 @@
-import { AEvent } from '@meteo/core';
+import { AEvent } from '@lucca-front-sdk/ng/ngrx';
 import { IGmapGeocode } from '@meteo/models';
 
 export class SetGeocodeEvt extends AEvent<IGmapGeocode> {
-	constructor(geocode?: IGmapGeocode) {
-		super(
-			'[evt] set geocode',
-			geocode,
-		);
-	}
+	static TYPE = '[evt] set geocode';
 }

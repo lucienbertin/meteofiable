@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LocationStoreModule, DateStoreModule } from '@meteo/store';
+import { ForecastStoreModule } from '@meteo/store';
+import { ConductorModule } from '@lucca-front-sdk/ng/ngrx';
 
 import {
 	ForecastComponent,
@@ -9,7 +10,7 @@ import {
 	TimelineComponent,
 	TimelineForecastComponent,
 } from './components';
-import { ForecastMetaModule } from './components/meta/forecast-meta.module';
+import { ForecastMetaModule } from './meta/index';
 
 
 @NgModule({
@@ -27,9 +28,9 @@ import { ForecastMetaModule } from './components/meta/forecast-meta.module';
 	],
 	imports: [
 		CommonModule,
-		LocationStoreModule,
-		DateStoreModule,
+		ForecastStoreModule,
 		ForecastMetaModule,
+		ConductorModule,
 	],
 })
 export class ForecastModule { }

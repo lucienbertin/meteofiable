@@ -1,10 +1,10 @@
 import { IGmapGeocode } from '@meteo/models';
-import { AAction } from '@meteo/core';
 
 import { SetGeocodeData } from './location.data';
+import { IAction, transformType, ActionStatus } from '@lucca-front-sdk/ng/ngrx';
 
-const setGeocodeType = new SetGeocodeData().type;
-export function locationReducer(geocode: IGmapGeocode, action: AAction) {
+const setGeocodeType = transformType(SetGeocodeData.TYPE, ActionStatus.success);
+export function locationReducer(geocode: IGmapGeocode, action: IAction) {
 	switch (action.type) {
 		case setGeocodeType:
 			const setGeocodeData = action as SetGeocodeData;

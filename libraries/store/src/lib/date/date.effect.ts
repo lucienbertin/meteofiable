@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Effect } from '@ngrx/effects';
-import { MfActions } from '@meteo/core';
+import { Effect, Actions } from '@ngrx/effects';
 
 import { SetDateCmd } from './date.command';
 import { SetDateEvt } from './date.event';
+import { ofPending, callAndFollow, complete, IAction } from '@lucca-front-sdk/ng/ngrx';
+import { of } from 'rxjs';
 
 @Injectable()
 export class DateEffect {
-	@Effect() setDateHandler = this.actions$
-		.of(new SetDateCmd())
-		.follow(c => new SetDateEvt(c.payload.date));
-	@Effect() setAddressComplete = this.actions$
-		.complete(new SetDateCmd(), new SetDateEvt());
+	@Effect() handler = this.actions$.pipe(
+		ofPending(SetDateCmd),
+		callAndFollow(p => of(p), SetDateEvt),
+	);
+	@Effect() complete = this.handler.pipe(
+		complete(SetDateCmd),
+	);
 
 	constructor(
-		private actions$: MfActions,
+		private actions$: Actions<IAction>,
 	) { }
 }
